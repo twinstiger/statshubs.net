@@ -3,7 +3,7 @@ import { allArticles } from '@/lib/data'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -12,8 +12,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function ArticleDetailPage({ params }: PageProps) {
-  const article = allArticles.find((a) => a.slug === params.slug)
+export default async function ArticleDetailPage({ params }: PageProps) {
+  const { slug } = await params
+  const article = allArticles.find((a) => a.slug === slug)
 
   if (!article) {
     notFound()
