@@ -3,7 +3,7 @@ import { teams } from '@/lib/data'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -12,8 +12,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function TeamDetailPage({ params }: PageProps) {
-  const team = teams.find((t) => t.slug === params.slug)
+export default async function TeamDetailPage({ params }: PageProps) {
+  const { slug } = await params
+  const team = teams.find((t) => t.slug === slug)
 
   if (!team) {
     notFound()
