@@ -37,9 +37,9 @@ const teamImages: Record<string, string> = {
 }
 
 const getArticleImage = (slug: string, index: number): string => {
-  // First 3 featured articles use venue images
-  if (index < 3) {
-    return venueImages[index % venueImages.length]
+  // Only first article (featured) uses venue images
+  if (index === 0) {
+    return venueImages[0]
   }
 
   // Team articles use team-specific images
