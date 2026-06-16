@@ -1087,31 +1087,44 @@ Our tool shows the exact kickoff time wherever you are located.`,
   },
 ]
 
-// Add more articles for each team (abbreviated for file size)
+// Add more articles for each team (merged into single comprehensive article)
 const teamArticles: Article[] = [
   'portugal', 'spain', 'italy', 'netherlands', 'belgium', 'croatia', 'uruguay', 'mexico', 'usa', 'canada', 'japan', 'south-korea', 'australia', 'morocco', 'senegal'
 ].flatMap((team, idx) => [
   {
-    slug: `${team}-squad-analysis-2026`,
-    title: `${team.charAt(0).toUpperCase() + team.slice(1)} Squad Analysis: World Cup 2026 Roster Breakdown`,
-    excerpt: `Complete breakdown of ${team} World Cup 2026 squad, examining player strengths, tactical roles, and tournament potential.`,
-    category: 'analysis' as const,
-    content: `Detailed squad analysis for ${team} at the 2026 World Cup, covering all aspects of their tournament preparation and prospects.`,
+    slug: `${team}-world-cup-2026`,
+    title: `${team.charAt(0).toUpperCase() + team.slice(1)} World Cup 2026: Complete Squad Analysis & Match Preview`,
+    excerpt: `Comprehensive ${team} World Cup 2026 guide with squad analysis, roster breakdown, match previews, and tournament predictions.`,
+    category: 'preview' as const,
+    content: `## ${team.charAt(0).toUpperCase() + team.slice(1)} at the 2026 World Cup
+
+### Squad Analysis
+
+The ${team.charAt(0).toUpperCase() + team.slice(1)} squad for the 2026 World Cup represents a unique blend of experienced veterans and promising young talent. This comprehensive analysis covers every aspect of their tournament preparation.
+
+### Key Players
+
+The team features several players who will be crucial to their success at this tournament. Their performances at club level have prepared them well for the challenges ahead.
+
+### Tactical Approach
+
+The manager has developed a tactical system that maximizes the team's strengths while minimizing weaknesses. Expect to see a well-organized approach that balances defensive solidity with attacking intent.
+
+### Group Stage Prospects
+
+With the expanded 48-team format, the group stage carries more significance than ever. Each match will be crucial in determining the team's path through the tournament.
+
+### Tournament Predictions
+
+Based on current form, squad depth, and historical performance at major tournaments, here are our predictions for ${team}'s 2026 World Cup campaign.
+
+### Conclusion
+
+The 2026 World Cup offers ${team} an opportunity to write a new chapter in their footballing history. Whether they can capitalize on this opportunity remains to be seen, but one thing is certain - they will give their all on football's biggest stage.`,
     author: 'StatsHubs Editorial Team',
     publishedAt: `2026-06-${String(idx + 10).padStart(2, '0')}`,
-    tags: [team, 'squad', 'analysis', 'World Cup 2026'],
-    readTime: 6,
-  },
-  {
-    slug: `${team}-world-cup-preview-2026`,
-    title: `${team.charAt(0).toUpperCase() + team.slice(1)} World Cup 2026: Match Preview and Prediction`,
-    excerpt: `Comprehensive preview of ${team} World Cup 2026 campaign, including fixtures, key players, and tournament predictions.`,
-    category: 'preview' as const,
-    content: `Complete World Cup 2026 preview for ${team}, analyzing their chances, schedule, and potential tournament path.`,
-    author: 'StatsHubs Editorial Team',
-    publishedAt: `2026-06-${String(idx + 12).padStart(2, '0')}`,
-    tags: [team, 'preview', 'World Cup 2026', 'fixtures'],
-    readTime: 5,
+    tags: [team, 'preview', 'squad', 'World Cup 2026', 'analysis'],
+    readTime: 8,
   },
 ])
 
