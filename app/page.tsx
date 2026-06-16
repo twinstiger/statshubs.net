@@ -160,17 +160,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Ad Banner */}
-      <section className="py-8 container mx-auto px-4">
-        <div className="max-w-[728px] h-[90px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-          <div className="text-center text-gray-400">
-            <p className="text-sm">Advertisement</p>
-            <p className="text-xs">728x90</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Tools Section */}
+{/* Tools Section */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-8 text-center">Essential World Cup Tools</h2>
@@ -290,17 +280,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Ad Banner */}
-      <section className="py-8 container mx-auto px-4">
-        <div className="max-w-[728px] h-[90px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-          <div className="text-center text-gray-400">
-            <p className="text-sm">Advertisement</p>
-            <p className="text-xs">728x90</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Downloads Section */}
+{/* Downloads Section */}
       <section className="py-12 bg-blue-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Free Downloads</h2>
