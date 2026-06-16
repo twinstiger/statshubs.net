@@ -152,7 +152,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Ad Banner */}
+      {/* Ad Banner - Temporarily disabled
       <section className="py-8 container mx-auto px-4">
         <div className="max-w-[728px] h-[90px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
           <div className="text-center text-gray-400">
@@ -161,6 +161,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Tools Section */}
       <section className="py-12 bg-gray-50">
@@ -327,7 +328,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Ad Banner */}
+      {/* Ad Banner - Temporarily disabled
       <section className="py-8 container mx-auto px-4">
         <div className="max-w-[728px] h-[90px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
           <div className="text-center text-gray-400">
@@ -336,6 +337,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Downloads Section */}
       <section className="py-12 bg-blue-900 text-white">
