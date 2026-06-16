@@ -11,28 +11,68 @@ const venueImages = [
   'https://picsum.photos/seed/worldcup3/800/400',
 ]
 
-// Team-specific images using picsum with unique seeds
-const teamImages: Record<string, string> = {
-  argentina: 'https://picsum.photos/seed/argentina/400/300',
-  brazil: 'https://picsum.photos/seed/brazil/400/300',
-  france: 'https://picsum.photos/seed/france/400/300',
-  germany: 'https://picsum.photos/seed/germany/400/300',
-  spain: 'https://picsum.photos/seed/spain/400/300',
-  portugal: 'https://picsum.photos/seed/portugal/400/300',
-  england: 'https://picsum.photos/seed/england/400/300',
-  italy: 'https://picsum.photos/seed/italy/400/300',
-  netherlands: 'https://picsum.photos/seed/netherlands/400/300',
-  belgium: 'https://picsum.photos/seed/belgium/400/300',
-  croatia: 'https://picsum.photos/seed/croatia/400/300',
-  uruguay: 'https://picsum.photos/seed/uruguay/400/300',
-  mexico: 'https://picsum.photos/seed/mexico/400/300',
-  usa: 'https://picsum.photos/seed/usa/400/300',
-  canada: 'https://picsum.photos/seed/canada/400/300',
-  japan: 'https://picsum.photos/seed/japan/400/300',
-  'south-korea': 'https://picsum.photos/seed/southkorea/400/300',
-  australia: 'https://picsum.photos/seed/australia/400/300',
-  morocco: 'https://picsum.photos/seed/morocco/400/300',
-  senegal: 'https://picsum.photos/seed/senegal/400/300',
+// Team logos from 163.com
+const teamLogos: Record<string, string> = {
+  // Group A
+  mexico: 'http://cms-bucket.ws.126.net/2022/1018/19a82fe6p00rjyaf7000cc000dw00dwc.png',
+  'south-korea': 'http://cms-bucket.ws.126.net/2022/1018/7b9a82dfp00rjya4m000cc000dw00dwc.png',
+  czech: 'https://cms-bucket.ws.126.net/2026/0521/7cb3c4cep00tfd6870005c000dw00dwc.png',
+  'south-africa': 'https://cms-bucket.ws.126.net/2026/0521/ae441587p00tfd4s80006c000dw00dwc.png',
+  // Group B
+  switzerland: 'http://cms-bucket.ws.126.net/2022/1018/abc24152p00rjyayh0005c000e800e8c.png',
+  canada: 'http://cms-bucket.ws.126.net/2022/1018/e7c3d3b5p00rjyasg0008c000dw00dwc.png',
+  qatar: 'http://cms-bucket.ws.126.net/2022/1018/30fbb812p00rjya7w0008c000dw00dwc.png',
+  bosnia: 'https://cms-bucket.ws.126.net/2026/0521/40725046p00tfd69u000ac000dw00dwc.png',
+  // Group C
+  scotland: 'https://cms-bucket.ws.126.net/2026/0521/be1528f6p00tfddbg000ac000dw00dwc.png',
+  morocco: 'http://cms-bucket.ws.126.net/2022/1018/ceec89a3p00rjyasu0006c000dw00dwc.png',
+  brazil: 'http://cms-bucket.ws.126.net/2022/1018/9f96465ap00rjyaxi000ec000dw00dwc.png',
+ haiti: 'https://cms-bucket.ws.126.net/2026/0521/6460aed7p00tfd66i000dc000dw00dwc.png',
+  // Group D
+  usa: 'http://cms-bucket.ws.126.net/2022/1018/92881c9bp00rjyabb0009c000dw00dwc.png',
+  australia: 'http://cms-bucket.ws.126.net/2022/1018/bd2234e0p00rjyajn0008c000dw00dwc.png',
+  turkey: 'https://cms-bucket.ws.126.net/2026/0521/c7289b60p00tfd4oj0008c000dw00dwc.png',
+  paraguay: 'https://cms-bucket.ws.126.net/2026/0521/50c13509p00tfd4we000bc000dw00dwc.png',
+  // Group E
+  germany: 'http://cms-bucket.ws.126.net/2022/1018/8bbe1959p00rjyanq0004c000dw00dwc.png',
+  'ivory-coast': 'https://cms-bucket.ws.126.net/2026/0521/9c82f046p00tfd6970005c000dw00dwc.png',
+  ecuador: 'http://cms-bucket.ws.126.net/2022/1018/1ffcf962p00rjya8b000lc000dw00dwc.png',
+  curacao: 'https://cms-bucket.ws.126.net/2026/0521/be81553ap00tfddjx0008c000dw00dwc.png',
+  // Group F
+  sweden: 'http://cms-bucket.ws.126.net/2026/0521/e18456b0p00tfdvzu000bc000dw00dwc.png',
+  japan: 'http://cms-bucket.ws.126.net/2022/1018/1774148dp00rjyao50009c000dw00dwc.png',
+  netherlands: 'http://cms-bucket.ws.126.net/2022/1018/8b6cd9e2p00rjya9a0004c000dw00dwc.png',
+  tunisia: 'http://cms-bucket.ws.126.net/2022/1018/d677c0a5p00rjyajf0009c000dw00dwc.png',
+  // Group G
+  'new-zealand': 'https://cms-bucket.ws.126.net/2026/0521/35aef810p00tfd6480008c000dw00dwc.png',
+  iran: 'http://cms-bucket.ws.126.net/2022/1018/7fa2062dp00rjyaav000bc000dw00dwc.png',
+  belgium: 'http://cms-bucket.ws.126.net/2022/1202/150b1e84p00rm94y20005c000dw00dwc.png',
+  egypt: 'https://cms-bucket.ws.126.net/2026/0521/6486403ap00tfd676000cc000dw00dwc.png',
+  // Group H
+  uruguay: 'http://cms-bucket.ws.126.net/2022/1018/21a31855p00rjyb2s000hc000dw00dwc.png',
+  'saudi-arabia': 'http://cms-bucket.ws.126.net/2022/1018/4860aa7ep00rjyaem000ic000dw00dwc.png',
+  spain: 'http://cms-bucket.ws.126.net/2022/1018/8d1d3c8bp00rjyan9000hc000dw00dwc.png',
+  'cape-verde': 'https://cms-bucket.ws.126.net/2026/0521/ece2f2d0p00tfd6aw0009c000dw00dwc.png',
+  // Group I
+  france: 'http://cms-bucket.ws.126.net/2022/1018/ebfe3909p00rjyaiy0005c000dw00dwc.png',
+  senegal: 'http://cms-bucket.ws.126.net/2022/1018/c70fec10p00rjya780007c000dw00dwc.png',
+  iraq: 'https://cms-bucket.ws.126.net/2026/0521/ed0392ffp00tfd6620008c000dw00dwc.png',
+  norway: 'https://cms-bucket.ws.126.net/2026/0521/70c50ce7p00tfd63i0005c000dw00dwc.png',
+  // Group J
+  argentina: 'http://cms-bucket.ws.126.net/2022/1018/d68743e5p00rjyae0000ec000dw00dwc.png',
+  algeria: 'https://cms-bucket.ws.126.net/2026/0521/1e86835ap00tfd6bi000ac000dw00dwc.png',
+  austria: 'https://cms-bucket.ws.126.net/2026/0521/124016c4p00tfd6bz0004c000dw00dwc.png',
+  jordan: 'https://cms-bucket.ws.126.net/2026/0521/046907b2p00tfd65g0006c000dw00dwc.png',
+  // Group K
+  portugal: 'http://cms-bucket.ws.126.net/2022/1018/090ad241p00rjyb1p000mc000dw00dwc.png',
+  'dr-congo': 'https://cms-bucket.ws.126.net/2026/0521/1efef2eap00tfd67n0008c000dw00dwc.png',
+  uzbekistan: 'https://cms-bucket.ws.126.net/2026/0521/39d79a7bp00tfd4nl0007c000dw00dwc.png',
+  colombia: 'https://cms-bucket.ws.126.net/2026/0521/ddbf87c3p00tfd68q0004c000dw00dwc.png',
+  // Group L
+  england: 'http://cms-bucket.ws.126.net/2022/1018/123eb1e8p00rjya440002c000740074c.png',
+  croatia: 'http://cms-bucket.ws.126.net/2022/1202/651c1a70p00rm950n000cc000dw00dwc.png',
+  ghana: 'http://cms-bucket.ws.126.net/2022/1018/171c3af3p00rjyb250006c000dw00dwc.png',
+  panama: 'https://cms-bucket.ws.126.net/2026/0521/6e14eb7fp00tfd62o0008c000dw00dwc.png',
   default: 'https://picsum.photos/seed/football/400/300',
 }
 
@@ -42,15 +82,15 @@ const getArticleImage = (slug: string, index: number): string => {
     return venueImages[index]
   }
 
-  // Team articles use team-specific images
+  // Team articles use team logos from 163.com
   const slugLower = slug.toLowerCase()
-  for (const [team, imageUrl] of Object.entries(teamImages)) {
+  for (const [team, logoUrl] of Object.entries(teamLogos)) {
     if (slugLower.includes(team)) {
-      return imageUrl
+      return logoUrl
     }
   }
 
-  return teamImages.default
+  return teamLogos.default
 }
 
 export default function NewsPage() {
@@ -124,16 +164,12 @@ export default function NewsPage() {
           <div className="mb-12">
             <div className="bg-white rounded-lg overflow-hidden shadow-sm">
               <div className="md:flex">
-                <div className={`md:w-1/3 h-64 bg-gradient-to-br ${getCategoryStyle(filteredArticles[0].category).gradient} relative overflow-hidden`}>
+                <div className="md:w-1/3 h-72 bg-gradient-to-br from-gray-700 to-gray-900 relative overflow-hidden flex items-center justify-center p-6">
                   <img
                     src={getArticleImage(filteredArticles[0].slug, 0)}
                     alt="World Cup 2026"
-                    className="w-full h-full object-cover"
+                    className="max-h-full max-w-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-3xl z-10">
-                    {getCategoryStyle(filteredArticles[0].category).icon}
-                  </div>
                 </div>
                 <div className="md:w-2/3 p-8">
                   <div className="flex items-center gap-3 mb-3">
@@ -160,22 +196,18 @@ export default function NewsPage() {
         )}
 
         {/* Article Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredArticles.slice(1).map((article, idx) => {
             const style = getCategoryStyle(article.category)
             const imageIndex = idx + 1
             return (
-              <article key={article.slug} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className={`h-40 bg-gradient-to-br ${style.gradient} relative overflow-hidden`}>
+              <article key={article.slug} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden flex items-center justify-center p-4">
                   <img
                     src={getArticleImage(article.slug, imageIndex)}
                     alt={article.title}
-                    className="w-full h-full object-cover"
+                    className="max-h-full max-w-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-3 right-3 text-3xl z-10">
-                    {style.icon}
-                  </div>
                 </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
