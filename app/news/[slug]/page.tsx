@@ -75,80 +75,21 @@ export default async function ArticleDetailPage({ params }: PageProps) {
 
             {/* Article Content */}
             <div className="prose max-w-none">
-              <p className="text-lg leading-relaxed mb-6">
-                {article.excerpt}
-              </p>
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">Introduction</h2>
-              <p className="mb-4">
-                The FIFA World Cup 2026 promises to be one of the most exciting tournaments in football history.
-                With the expansion to 48 teams and matches spread across three host countries, fans around the
-                world are eagerly anticipating what promises to be a historic celebration of football.
-              </p>
-              <p className="mb-4">
-                This comprehensive guide provides all the information you need to follow your favorite teams
-                and players throughout the tournament. From understanding the new format to tracking match times
-                across different time zones, we've got you covered.
-              </p>
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">Key Information</h2>
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-600">Tournament Dates</p>
-                    <p className="font-semibold">June 11 - July 19, 2026</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Host Countries</p>
-                    <p className="font-semibold">USA, Canada, Mexico</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Participating Teams</p>
-                    <p className="font-semibold">48 Teams</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Total Matches</p>
-                    <p className="font-semibold">104 Matches</p>
-                  </div>
-                </div>
-              </div>
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">Main Content</h2>
-              <p className="mb-4">
-                The 2026 World Cup represents a new era for international football. The expansion from 32 to
-                48 teams means more nations than ever will have the opportunity to compete on the world's
-                biggest stage. This change brings both opportunities and challenges for teams, players, and fans alike.
-              </p>
-              <p className="mb-4">
-                For fans, the tournament offers more matches to watch, more teams to follow, and more
-                opportunities to engage with the beautiful game. The new format ensures that even teams
-                that don't advance from their groups will have played a full five matches, providing
-                more value for supporters who travel to watch their teams.
-              </p>
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">Analysis & Insights</h2>
-              <p className="mb-4">
-                Looking at the tournament from a tactical perspective, the expanded group stage means teams
-                will need to manage their squads more carefully. With five matches in the group stage alone,
-                player rotation and fitness management will be crucial factors in determining success.
-              </p>
-              <p className="mb-4">
-                The knockout stage format remains similar to previous tournaments, with 24 teams advancing
-                from the group stage to compete in the Round of 16, Quarterfinals, Semifinals, and ultimately
-                the Final on July 19, 2026.
-              </p>
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">Conclusion</h2>
-              <p className="mb-4">
-                As we approach the start of the 2026 World Cup, excitement continues to build across the globe.
-                Whether you're rooting for a traditional powerhouse or a newcomer to the tournament, this World Cup
-                promises to deliver unforgettable moments and historic achievements.
-              </p>
-              <p>
-                Stay tuned to our website for the latest updates, match previews, and comprehensive coverage
-                throughout the tournament. Use our timezone converter to never miss a match, track live standings
-                as the competition progresses, and share your predictions with friends using our bracket maker.
-              </p>
+              {article.content.split('\n').map((paragraph, idx) => {
+                if (paragraph.startsWith('## ')) {
+                  return <h2 key={idx} className="text-2xl font-bold mt-8 mb-4">{paragraph.replace('## ', '')}</h2>
+                }
+                if (paragraph.startsWith('### ')) {
+                  return <h3 key={idx} className="text-xl font-bold mt-6 mb-3">{paragraph.replace('### ', '')}</h3>
+                }
+                if (paragraph.startsWith('- ')) {
+                  return <li key={idx} className="ml-4 mb-2">{paragraph.replace('- ', '')}</li>
+                }
+                if (paragraph.trim()) {
+                  return <p key={idx} className="mb-4">{paragraph}</p>
+                }
+                return null
+              })}
             </div>
 
             {/* Tags */}
