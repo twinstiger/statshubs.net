@@ -7,6 +7,18 @@ import { useState } from 'react'
 export default function NewsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
+  // World Cup themed gradient backgrounds for article cards
+  const cardGradients = [
+    'from-blue-900 to-blue-700',
+    'from-green-900 to-green-700',
+    'from-purple-900 to-purple-700',
+    'from-orange-900 to-orange-700',
+    'from-red-900 to-red-700',
+    'from-yellow-900 to-yellow-700',
+  ]
+
+  const getGradient = (index: number) => cardGradients[index % cardGradients.length]
+
   const categories = [
     { value: 'all', label: 'All News' },
     { value: 'preview', label: 'Match Previews' },
@@ -62,8 +74,15 @@ export default function NewsPage() {
           <div className="mb-12">
             <div className="bg-white rounded-lg overflow-hidden shadow-sm">
               <div className="md:flex">
-                <div className="md:w-1/3 h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                  <span className="text-8xl">⚽</span>
+                <div className="md:w-1/3 h-64 relative overflow-hidden">
+                  <img
+                    src="/images/hero-stadium.jpeg"
+                    alt="World Cup 2026"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-blue-900/40 flex items-center justify-center">
+                    <span className="text-6xl">🏆</span>
+                  </div>
                 </div>
                 <div className="md:w-2/3 p-8">
                   <div className="flex items-center gap-3 mb-3">
@@ -91,10 +110,21 @@ export default function NewsPage() {
 
         {/* Article Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredArticles.slice(1).map((article) => (
+          {filteredArticles.slice(1).map((article, idx) => (
             <article key={article.slug} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-6xl">📰</span>
+              <div className={`h-48 bg-gradient-to-br ${getGradient(idx)} flex items-center justify-center relative`}>
+                <img
+                  src="/images/hero-stadium.jpeg"
+                  alt={article.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-40"
+                />
+                <div className="relative z-10">
+                  {article.category === 'preview' && <span className="text-5xl">⚽</span>}
+                  {article.category === 'analysis' && <span className="text-5xl">📊</span>}
+                  {article.category === 'guide' && <span className="text-5xl">📋</span>}
+                  {article.category === 'fan' && <span className="text-5xl">👏</span>}
+                  {article.category === 'recap' && <span className="text-5xl">🏅</span>}
+                </div>
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
