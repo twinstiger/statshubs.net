@@ -196,22 +196,6 @@ export default function TeamDetailPage({ params }: PageProps) {
                 </Link>
               </div>
             </div>
-
-            {/* Affiliate */}
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6">
-              <h3 className="font-bold text-lg mb-3">⚽ Team Merchandise</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Support {team.name} with official merchandise
-              </p>
-              <a
-                href="https://amazon.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-blue-600 text-white text-center px-4 py-2 rounded-lg font-medium hover:bg-blue-700"
-              >
-                Shop on Amazon →
-              </a>
-            </div>
           </div>
         </div>
       </div>

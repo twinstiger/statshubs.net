@@ -245,51 +245,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Affiliate Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6">Essential Fan Gear</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border rounded-lg overflow-hidden">
-              <div className="h-32 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-5xl">👕</span>
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">Official World Cup Jerseys</h3>
-                <p className="text-sm text-gray-600 mb-3">Get your national team jersey before the tournament</p>
-                <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700">
-                  View on Amazon →
-                </a>
-              </div>
-            </div>
-            <div className="bg-white border rounded-lg overflow-hidden">
-              <div className="h-32 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-5xl">📺</span>
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">4K Smart TV</h3>
-                <p className="text-sm text-gray-600 mb-3">Best TVs for watching the World Cup</p>
-                <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700">
-                  View on Amazon →
-                </a>
-              </div>
-            </div>
-            <div className="bg-white border rounded-lg overflow-hidden">
-              <div className="h-32 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-5xl">🔒</span>
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">VPN for Streaming</h3>
-                <p className="text-sm text-gray-600 mb-3">Watch matches from anywhere</p>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700">
-                  Learn More →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Latest News */}
       <section className="py-12 container mx-auto px-4">
         <div className="flex items-center justify-between mb-6">
