@@ -134,7 +134,7 @@ export default function RootLayout({
         {/* Ko-fi Donation Button */}
         <div className="fixed bottom-4 right-4 z-50">
           <a
-            href="https://ko-fi.com/statshubs"
+            href="https://ko-fi.com/shuanghuz1gmailcom"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#29ABE0] text-white px-4 py-2 rounded-full shadow-lg hover:bg-[#1a8ab8] transition-colors text-sm font-medium"
