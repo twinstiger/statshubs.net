@@ -6,34 +6,34 @@ import { useState } from 'react'
 
 // World Cup venue images for featured articles
 const venueImages = [
-  'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=800', // Stadium aerial
-  'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800', // Stadium field
-  'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800', // Soccer field
+  'https://picsum.photos/seed/worldcup1/800/400',
+  'https://picsum.photos/seed/worldcup2/800/400',
+  'https://picsum.photos/seed/worldcup3/800/400',
 ]
 
-// Team flag/colors mapping for team articles
+// Team-specific images using picsum with unique seeds
 const teamImages: Record<string, string> = {
-  argentina: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400',
-  brazil: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400',
-  france: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=400',
-  germany: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=400',
-  spain: 'https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=400',
-  portugal: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400',
-  england: 'https://images.unsplash.com/photo-1514714750792-0b838cff0684?w=400',
-  italy: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=400',
-  netherlands: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400',
-  belgium: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=400',
-  croatia: 'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=400',
-  uruguay: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400',
-  mexico: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=400',
-  usa: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=400',
-  canada: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=400',
-  japan: 'https://images.unsplash.com/photo-1474224017046-182eecd1d5d5?w=400',
-  'south-korea': 'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=400',
-  australia: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400',
-  morocco: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400',
-  senegal: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400',
-  default: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400',
+  argentina: 'https://picsum.photos/seed/argentina/400/300',
+  brazil: 'https://picsum.photos/seed/brazil/400/300',
+  france: 'https://picsum.photos/seed/france/400/300',
+  germany: 'https://picsum.photos/seed/germany/400/300',
+  spain: 'https://picsum.photos/seed/spain/400/300',
+  portugal: 'https://picsum.photos/seed/portugal/400/300',
+  england: 'https://picsum.photos/seed/england/400/300',
+  italy: 'https://picsum.photos/seed/italy/400/300',
+  netherlands: 'https://picsum.photos/seed/netherlands/400/300',
+  belgium: 'https://picsum.photos/seed/belgium/400/300',
+  croatia: 'https://picsum.photos/seed/croatia/400/300',
+  uruguay: 'https://picsum.photos/seed/uruguay/400/300',
+  mexico: 'https://picsum.photos/seed/mexico/400/300',
+  usa: 'https://picsum.photos/seed/usa/400/300',
+  canada: 'https://picsum.photos/seed/canada/400/300',
+  japan: 'https://picsum.photos/seed/japan/400/300',
+  'south-korea': 'https://picsum.photos/seed/southkorea/400/300',
+  australia: 'https://picsum.photos/seed/australia/400/300',
+  morocco: 'https://picsum.photos/seed/morocco/400/300',
+  senegal: 'https://picsum.photos/seed/senegal/400/300',
+  default: 'https://picsum.photos/seed/football/400/300',
 }
 
 const getArticleImage = (slug: string, index: number): string => {
@@ -43,8 +43,9 @@ const getArticleImage = (slug: string, index: number): string => {
   }
 
   // Team articles use team-specific images
+  const slugLower = slug.toLowerCase()
   for (const [team, imageUrl] of Object.entries(teamImages)) {
-    if (slug.toLowerCase().includes(team)) {
+    if (slugLower.includes(team)) {
       return imageUrl
     }
   }
