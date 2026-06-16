@@ -1,9 +1,11 @@
 import HomeClient from './HomeClient'
+import { Language } from '@/lib/i18n'
 
 interface HomePageProps {
-  params: { lang: string }
+  params: Promise<{ lang: string }>
 }
 
-export default function HomePage({ params }: HomePageProps) {
-  return <HomeClient lang={params.lang as any} />
+export default async function HomePage({ params }: HomePageProps) {
+  const { lang } = await params
+  return <HomeClient lang={lang as Language} />
 }

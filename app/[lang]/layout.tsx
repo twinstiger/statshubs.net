@@ -3,7 +3,7 @@ import { languages } from '@/lib/i18n'
 
 interface LangLayoutProps {
   children: React.ReactNode
-  params: { lang: string }
+  params: Promise<{ lang: string }>
 }
 
 export async function generateStaticParams() {
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: LangLayoutProps): Promise<Metadata> {
-  const lang = params.lang
+  const { lang } = await params
   const langConfig = languages.find(l => l.code === lang) || languages[0]
 
   const titles: Record<string, string> = {
@@ -56,6 +56,7 @@ export async function generateMetadata({ params }: LangLayoutProps): Promise<Met
   }
 }
 
-export default function LangLayout({ children, params }: LangLayoutProps) {
+export default async function LangLayout({ children, params }: LangLayoutProps) {
+  await params
   return children
 }
