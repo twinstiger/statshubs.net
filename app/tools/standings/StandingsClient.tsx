@@ -36,7 +36,7 @@ export default function StandingsClient() {
             >
               All Groups
             </button>
-            {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].map((group) => (
+            {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].map((group) => (
               <button
                 key={group}
                 onClick={() => setSelectedGroup(group)}
@@ -133,11 +133,11 @@ export default function StandingsClient() {
                 <div>
                   <h3 className="text-xl font-bold mb-3">Group Stage Structure</h3>
                   <ul className="space-y-2">
-                    <li>• 48 teams divided into 8 groups of 6 teams</li>
-                    <li>• Each team plays 5 group stage matches</li>
+                    <li>• 48 teams divided into 12 groups of 4 teams</li>
+                    <li>• Each team plays 3 group stage matches</li>
                     <li>• Top 2 teams from each group advance automatically</li>
-                    <li>• 4 best third-place teams also advance</li>
-                    <li>• Total of 24 teams in knockout stage</li>
+                    <li>• 8 best third-place teams also advance</li>
+                    <li>• Total of 32 teams in knockout stage</li>
                   </ul>
 
                   <h3 className="text-xl font-bold mt-6 mb-3">Tiebreaker Rules</h3>
@@ -156,19 +156,20 @@ export default function StandingsClient() {
                 <div>
                   <h3 className="text-xl font-bold mb-3">Knockout Stage</h3>
                   <ul className="space-y-2">
-                    <li>• Round of 16: 24 teams → 16 teams</li>
-                    <li>• Quarterfinals: 16 teams → 8 teams</li>
-                    <li>• Semifinals: 8 teams → 4 teams</li>
+                    <li>• Round of 32: 32 teams → 16 teams</li>
+                    <li>• Round of 16: 16 teams → 8 teams</li>
+                    <li>• Quarterfinals: 8 teams → 4 teams</li>
+                    <li>• Semifinals: 4 teams → 2 teams</li>
                     <li>• Third Place: Losers of semifinals</li>
                     <li>• Final: Winners of semifinals</li>
                   </ul>
 
                   <h3 className="text-xl font-bold mt-6 mb-3">Key Changes from 2022</h3>
                   <ul className="space-y-2">
-                    <li>• Groups expanded from 4 to 6 teams</li>
-                    <li>• 5 group matches per team (was 3)</li>
+                    <li>• Groups expanded from 8 to 12 groups</li>
+                    <li>• 4 teams per group (was 4)</li>
+                    <li>• 3 group matches per team (same as before)</li>
                     <li>• Total of 104 matches (was 64)</li>
-                    <li>• Best third-place advancement rule applies</li>
                     <li>• Matches spread across 3 countries</li>
                   </ul>
                 </div>
@@ -177,7 +178,7 @@ export default function StandingsClient() {
               <div className="mt-8 p-4 bg-blue-50 rounded-lg">
                 <h4 className="font-bold mb-2">Qualification Scenarios</h4>
                 <p className="text-sm text-gray-700">
-                  With 4 of 6 third-place teams advancing, teams still have hope even after two losses.
+                  With 8 of 12 third-place teams advancing, teams still have hope even after a loss.
                   The third-place race adds excitement to every group stage match as teams battle for the
                   best possible record to advance.
                 </p>
