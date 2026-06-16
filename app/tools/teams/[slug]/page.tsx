@@ -32,6 +32,8 @@ export default function TeamDetailPage({ params }: PageProps) {
     { id: '10', name: 'Striker', position: 'Forward', age: 22, number: 7, club: 'Top European Club', goals: 20, caps: 15 },
   ]
 
+  const displayPlayers = team.squad.length > 0 ? team.squad : samplePlayers
+
   const groupTeams = teams.filter((t) => t.group === team.group && t.slug !== team.slug)
 
   return (
@@ -104,15 +106,15 @@ export default function TeamDetailPage({ params }: PageProps) {
                     </tr>
                   </thead>
                   <tbody>
-                    {samplePlayers.map((player, idx) => (
+                    {displayPlayers.map((player, idx) => (
                       <tr key={player.id} className="border-t hover:bg-gray-50">
                         <td className="px-4 py-3 font-bold">{player.number}</td>
                         <td className="px-4 py-3 font-medium">{player.name}</td>
                         <td className="px-4 py-3 text-gray-600">{player.position}</td>
                         <td className="px-4 py-3">{player.age}</td>
-                        <td className="px-4 py-3 text-gray-600">{player.club}</td>
-                        <td className="px-4 py-3">{player.caps}</td>
-                        <td className="px-4 py-3 font-bold text-green-600">{player.goals}</td>
+                        <td className="px-4 py-3 text-gray-600">{player.club || '-'}</td>
+                        <td className="px-4 py-3">{player.caps ?? '-'}</td>
+                        <td className="px-4 py-3 font-bold text-green-600">{player.goals ?? '-'}</td>
                       </tr>
                     ))}
                   </tbody>
