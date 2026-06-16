@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { articles } from '@/lib/data'
+import { allArticles } from '@/lib/data'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
@@ -7,19 +7,19 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return articles.map((article) => ({
+  return allArticles.map((article) => ({
     slug: article.slug,
   }))
 }
 
 export default function ArticleDetailPage({ params }: PageProps) {
-  const article = articles.find((a) => a.slug === params.slug)
+  const article = allArticles.find((a) => a.slug === params.slug)
 
   if (!article) {
     notFound()
   }
 
-  const relatedArticles = articles
+  const relatedArticles = allArticles
     .filter((a) => a.slug !== article.slug && a.category === article.category)
     .slice(0, 3)
 
