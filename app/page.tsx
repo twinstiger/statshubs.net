@@ -38,8 +38,16 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero-stadium.jpeg"
+            alt="World Cup Stadium"
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/70 to-blue-700/80"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               ⚽ FIFA World Cup 2026
