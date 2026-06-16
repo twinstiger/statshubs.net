@@ -831,6 +831,260 @@ Remember: Betting should be entertainment, not a way to make money.`,
     tags: ['betting', 'odds', 'fan guide', 'gambling'],
     readTime: 8,
   },
+
+  // Trending Keyword Articles - June 2026
+  {
+    slug: 'spain-vs-cape-verde-world-cup-2026',
+    title: 'Spain vs Cape Verde: World Cup 2026 Group Stage Preview',
+    excerpt: 'Complete guide to Spain vs Cape Verde 2026 World Cup match. Schedule, team news, head-to-head record, and prediction for this exciting Group E encounter.',
+    category: 'preview' as const,
+    content: `The 2026 World Cup brings an intriguing matchup as Spain faces Cape Verde (Cabo Verde) in what promises to be a fascinating Group E encounter. This comprehensive guide covers everything you need to know.
+
+## Match Overview
+
+Spain's clash with Cabo Verde represents one of the tournament's most compelling group stage fixtures. The Atlantic island nation qualified for their first World Cup in dramatic fashion, while Spain looks to rebuild after their 2022 disappointment.
+
+## Spain Team Analysis
+
+### Current Form
+La Roja enters the tournament with renewed optimism under manager Luis de la Fuente. The squad blends experienced veterans with exciting young talent from Real Madrid and Barcelona.
+
+### Key Players
+- **Pedri**: midfield maestro pulling strings
+- **Gavi**: dynamic presence in the center
+- **Dani Olmo**: creative force driving attacks
+- **Joselu**: clinical finishing option
+
+### Tactical Approach
+Spain will dominate possession as always, but this squad shows greater directness in attack. The focus is on quick transitions and exploiting space behind opposition lines.
+
+## Cape Verde (Cabo Verde) Preview
+
+### Historic Achievement
+Cape Verde's World Cup qualification marks a historic milestone for the smallest nation ever to reach the finals. Their passionate fanbase brings incredible energy to every match.
+
+### Squad Strengths
+- **Nuno Santos**: playmaking wizard
+- **Nani**: veteran leadership in attack
+- **Nádia**: defensive organizer
+- **Nuno**: goalkeeper with crucial saves
+
+### Playing Style
+Cape Verde plays an aggressive 4-3-3, pressing high and looking to create chances on the counter. Their physicality and work rate challenge every opponent.
+
+## Head-to-Head Record
+
+This will be the first-ever meeting between these nations at a major tournament. Previous encounters have been limited to friendly matches.
+
+## Match Prediction
+
+Spain enters as clear favorites, but Cape Verde's underdog spirit and first-World-Cup enthusiasm make them dangerous opponents. Expect Spain to win 2-0 or 3-1, but not without challenges.
+
+## How to Watch
+
+- **Date**: Check official World Cup 2026 schedule
+- **Time**: Use our timezone converter for your local time
+- **TV**: Consult local broadcasters for your region
+- **Streaming**: Official FIFA+ coverage available worldwide`,
+    author: 'StatsHubs Editorial Team',
+    publishedAt: '2026-06-12',
+    tags: ['Spain', 'Cape Verde', 'Cabo Verde', 'España Cabo Verde', 'preview', 'Group E'],
+    readTime: 7,
+  },
+  {
+    slug: 'brazil-vs-morocco-world-cup-2026',
+    title: 'Brazil vs Morocco 2026 World Cup: Complete Match Guide',
+    excerpt: 'Brazil vs Morocco 2026 World Cup preview. Squad analysis, head-to-head history, tactical breakdown, and match prediction for this exciting fixture.',
+    category: 'preview' as const,
+    content: `Brazil vs Morocco at the 2026 World Cup represents a meeting between two footballing cultures with distinct styles. Brazil brings their famous attacking flair, while Morocco possesses tactical discipline and physical presence.
+
+## Brazil Analysis
+
+### Squad Overview
+The Selção arrives with their strongest squad in years, combining established stars with emerging talents. Manager Dorival Jr has built a team capable of winning the tournament.
+
+### Star Players
+- **Neymar**: continuing his legacy as Brazil's talisman
+- **Vinicius Jr**: explosive pace and skill on the wing
+- **Rodri**: solidity in midfield anchor role
+- **Alisson**: goalkeeper reliability at crucial moments
+
+### Tactical Setup
+Expect Brazil's traditional 4-3-3 with emphasis on attacking full-backs and creative midfielders supporting the striker.
+
+## Morocco Analysis
+
+### Historic Run
+Morocco's 2022 World Cup showed they can compete with the world's best. The Atlas Lions reached the semifinals, defeating Spain and Portugal along the way.
+
+### Key Figures
+- **Achraf Hakimi**: world-class right-back
+- **Sofyan Amrabat**: midfield enforcer
+- **Hakim Ziyech**: creative spark
+- **Yassine Bounou**: goalkeeper with crucial saves
+
+### Tactical Approach
+Morocco plays a compact 4-1-4-1, absorbing pressure and hitting on the counter. Their disciplined defense challenges even the best attacks.
+
+## Head-to-Head
+
+Recent meetings:
+- 2022 World Cup: Morocco 2-1 Brazil (Group Stage)
+- 2023 Friendly: Brazil 3-0 Morocco
+
+## Match Prediction
+
+Brazil's individual quality may prove decisive, but Morocco's tactical discipline and tournament experience make them dangerous. Brazil 2-1 Morocco looks like a realistic outcome.
+
+## Schedule & Time
+
+Use our timezone converter to find the exact match time in your location.`,
+    author: 'StatsHubs Editorial Team',
+    publishedAt: '2026-06-13',
+    tags: ['Brazil', 'Morocco', 'Brasil x Marrocos', 'Brazil vs Morocco', 'preview'],
+    readTime: 8,
+  },
+  {
+    slug: 'usa-vs-paraguay-world-cup-2026',
+    title: 'USA vs Paraguay 2026 World Cup: Complete Guide',
+    excerpt: 'USA vs Paraguay World Cup 2026 match guide. Complete schedule, team news, preview, and how to watch this crucial Group C fixture.',
+    category: 'preview' as const,
+    content: `The United States hosts Paraguay at the 2026 World Cup in a pivotal Group C match. American fans hope their young squad can advance past the group stage for the first time since 2002.
+
+## USA Team Preview
+
+### Home Advantage
+Playing on home soil gives the USMNT incredible motivation. The atmosphere at NFL stadiums transformed into football venues provides an unforgettable experience.
+
+### Rising Stars
+- **Christian Pulisic**: captain and creative leader
+- **Sergiño Dest**: dynamic right-back
+- **Matt Turner**: goalkeeper with Premier League experience
+- **Giovanni Reyna**: midfield playmaker with vision
+
+### Tactical Approach
+Gregg Berhalter favors a 4-3-3 that balances defensive solidity with attacking intent. The team presses high and looks to create chances through quick combinations.
+
+## Paraguay Analysis
+
+### South American Tradition
+Paraguay brings decades of World Cup experience, having reached the quarterfinals in 2010. Their physical style challenges any opponent.
+
+### Key Players
+- **Miguel Almirón**: Newcastle's attacking midfielder
+- **Antonio Sanabria**: goal-scoring threat
+- **Gustavo Gómez**: defensive leader
+- **Mathías Villasanti**: midfield enforcer
+
+### Playing Style
+Paraguay plays pragmatic football, looking to hit teams on the counter. Their organized defense and set-piece quality create problems for less disciplined teams.
+
+## Match Prediction
+
+This fixture could determine Group C's runner-up. USA's home advantage is significant, but Paraguay's tournament experience is invaluable. A 1-1 draw or narrow USA win seems likely.
+
+## Watch in Your Timezone
+
+Our timezone converter shows the exact kickoff time for USA vs Paraguay wherever you are.`,
+    author: 'StatsHubs Editorial Team',
+    publishedAt: '2026-06-14',
+    tags: ['USA', 'United States', 'Paraguay', 'USA vs Paraguay', 'preview', 'Group C'],
+    readTime: 6,
+  },
+  {
+    slug: 'mexico-vs-south-africa-world-cup-2026',
+    title: 'Mexico vs South Africa 2026 World Cup: Match Preview',
+    excerpt: 'Complete guide to Mexico vs South Africa 2026 World Cup. Team previews, head-to-head, schedule, and prediction for this Group A fixture.',
+    category: 'preview' as const,
+    content: `Mexico faces South Africa (Bafana Bafana) in a 2026 World Cup Group A match that could have major implications for both teams' advancement hopes.
+
+## Mexico Analysis
+
+### El Tri Tradition
+Mexico's World Cup history includes consistent round-of-16 appearances. This generation aims to finally reach the quarterfinals for the first time.
+
+### Star Players
+- **Hirving Lozano**: pace and finishing ability
+- **Edson Álvarez**: midfield anchor
+- **Jorge Sánchez**: defensive reliability
+- **Érick Sánchez**: creative midfielder
+
+### Tactical Setup
+Manager Javier Aguirre uses a 5-3-2 formation that provides defensive solidity while allowing wing-backs to contribute to attacks.
+
+## South Africa Preview
+
+### Bafana Bafana Journey
+South Africa's 2026 qualification represents a historic achievement. Their passionate supporters bring incredible atmosphere wherever they play.
+
+### Key Players
+- **Percy Tau**: creative midfielder
+- **Lebo Mothiba**: goal scorer
+- **Toni Nieuwoudt**: defensive leader
+- **Evidence Makgopa**: pace up front
+
+### Playing Style
+South Africa plays an aggressive 4-2-3-1, pressing high and creating chances through wing play and set pieces.
+
+## Match Prediction
+
+Mexico's tournament experience gives them the edge, but South Africa's underdog spirit makes them dangerous. Mexico 2-0 or 2-1 seems the most likely outcome.
+
+## Schedule & Timezone
+
+Check our match schedule for the exact date and use our timezone converter for local kickoff times.`,
+    author: 'StatsHubs Editorial Team',
+    publishedAt: '2026-06-15',
+    tags: ['Mexico', 'South Africa', 'Mexico vs South Africa', 'preview', 'Group A'],
+    readTime: 6,
+  },
+  {
+    slug: 'belgium-vs-egypt-world-cup-2026',
+    title: 'Belgium vs Egypt 2026 World Cup: Tactical Preview',
+    excerpt: 'Belgium vs Egypt 2026 World Cup match guide. Squad analysis, tactical breakdown, and prediction for this intriguing Group E encounter.',
+    category: 'preview' as const,
+    content: `Belgium faces Egypt in a 2026 World Cup Group E match that pitches two footballing traditions against each other. The Red Devils have golden generation players in their final tournament, while Egypt relies on Mohamed Salah's brilliance.
+
+## Belgium Analysis
+
+### Last Chance for Golden Generation
+This tournament represents Belgium's best opportunity to finally win a major trophy. Key players are in their prime but aging, making 2026 their last realistic chance.
+
+### Star Players
+- **Kevin De Bruyne**: world's best midfielder
+- **Romelu Lukaku**: prolific goal scorer
+- **Thibaut Courtois**: world-class goalkeeper
+- **Jan Vertonghen**: experienced defender
+
+### Tactical Approach
+Belgium typically uses a 3-4-2-1 formation, with De Bruyne and Hazard playing behind Lukaku. The full-backs provide width while the midfield controls games.
+
+## Egypt Analysis
+
+### Pharaohs' Hope
+Egypt reaches their first World Cup since 2018, led by Liverpool superstar Mohamed Salah. Their passionate fanbase dreams of advancing past the group stage.
+
+### Key Players
+- **Mohamed Salah**: world-class attacker
+- **Trézéguet**: wing threat
+- **Ahmed Hegazi**: defensive leader
+- **Mohamed El-Shenawy**: goalkeeper
+
+### Playing Style
+Egypt plays a compact 4-3-3, looking to hit on the counter and utilize Salah's pace and finishing.
+
+## Match Prediction
+
+Belgium's quality should prevail, but Egypt's tactical discipline and Salah's individual brilliance make them dangerous. Belgium 2-1 Egypt seems the most likely result.
+
+## Watch with Timezone Converter
+
+Our tool shows the exact kickoff time wherever you are located.`,
+    author: 'StatsHubs Editorial Team',
+    publishedAt: '2026-06-16',
+    tags: ['Belgium', 'Egypt', 'Belgium vs Egypt', 'preview', 'Group E'],
+    readTime: 7,
+  },
 ]
 
 // Add more articles for each team (abbreviated for file size)

@@ -17,21 +17,21 @@ export async function generateMetadata({ params }: LangLayoutProps): Promise<Met
   const langConfig = languages.find(l => l.code === lang) || languages[0]
 
   const titles: Record<string, string> = {
-    en: 'World Cup 2026 Tool Hub - Schedule, Bracket & Live Scores',
-    es: 'Copa Mundial 2026 - Herramientas, Horarios y Resultados',
-    fr: 'Coupe du Monde 2026 - Outils, Calendrier et Résultats',
-    de: 'WM 2026 - Werkzeuge, Spielplan und Ergebnisse',
-    ja: 'ワールドカップ 2026 - ツール、スケジュール、結果',
-    pt: 'Copa do Mundo 2026 - Ferramentas, Calendário e Resultados'
+    en: 'FIFA World Cup 2026 - Schedule, Bracket Maker & Live Standings | StatsHubs',
+    es: 'Copa Mundial FIFA 2026 - Partidos, Horarios y Clasificaciones | StatsHubs',
+    fr: 'Coupe du Monde FIFA 2026 - Calendrier, Résultats et Classements | StatsHubs',
+    de: 'FIFA Fußball-Weltmeisterschaft 2026 - Spielplan, Ergebnisse & WM 2026 | StatsHubs',
+    ja: 'FIFA ワールドカップ 2026 - 試合日程、スケジュール、順位表 | StatsHubs',
+    pt: 'Copa do Mundo FIFA 2026 - Jogos, Resultados e Classificação | StatsHubs'
   }
 
   const descriptions: Record<string, string> = {
-    en: 'Your comprehensive World Cup 2026 companion with timezone converter, bracket maker, live standings, printable schedules, and team information.',
-    es: 'Tu compañero completo de la Copa Mundial 2026 con convertidor de zona horaria, creador de parrilla, clasificaciones en vivo.',
-    fr: 'Votre compagnon complet de la Coupe du Monde 2026 avec convertisseur de fuseau horaire, créateur de tableau et classements en direct.',
-    de: 'Ihr umfassender WM 2026 Begleiter mit Zeitzonenkonverter, Turnierbaum und Live-Tabellen.',
-    ja: 'タイムゾーン変換、ブラケットメーカー、ライブスコアを備えたFIFAワールドカップ2026の完全なコンパニオン。',
-    pt: 'Seu companheiro completo da Copa do Mundo 2026 com conversor de fuso horário, montador de pareo e classificações em tempo real.'
+    en: 'FIFA World Cup 2026™ - Complete match schedule, timezone converter, bracket maker, live standings, team squads, USA vs Paraguay, Mexico vs South Africa. Follow Copa Mundial 2026.',
+    es: 'Copa Mundial 2026™ - Partidos en vivo, horarios, convertidor de zona horaria, creación de pariilas, clasificaciones. España vs Cabo Verde, Brasil vs Marruecos.',
+    fr: 'Coupe du Monde 2026™ - Calendrier complet, match Brazil vs Morocco, convertisseur fuseau horaire, créateur de tableau, classements en direct.',
+    de: 'WM 2026™ - Fußball-Weltmeisterschaft mit Spielplan, Zeitzonenkonverter, Turnierbaum. Belgien vs Ägypten, WM 2026 Ergebnisse live.',
+    ja: 'FIFA ワールドカップ 2026™ - 試合日程、タイムゾーン変換、ブラケットメーカー、順位表。グループステージから決勝まで対応。',
+    pt: 'Copa do Mundo 2026™ - Jogos ao vivo, horários, conversor de fuso horário, pareo. Brasil x Marrocos, partidas da Copa do Mundo 2026.'
   }
 
   return {
