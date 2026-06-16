@@ -25,20 +25,28 @@ function AdUnit({ size, containerId }: AdProps) {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const script = document.createElement('script')
-    script.async = true
-    script.setAttribute('data-cfasync', 'false')
-    script.src = 'https://pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js'
-    script.id = `script-${containerId}`
+    // Script 1: Main ad script
+    const script1 = document.createElement('script')
+    script1.async = true
+    script1.setAttribute('data-cfasync', 'false')
+    script1.src = 'https://pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js'
+    script1.id = `script-invoke-${containerId}`
 
-    const existingScript = document.getElementById(`script-${containerId}`)
-    if (existingScript) {
-      existingScript.remove()
-    }
+    // Script 2: Additional ad script
+    const script2 = document.createElement('script')
+    script2.src = 'https://pl29763342.effectivecpmnetwork.com/76/24/27/762427d2c49841bf978fdff5e81cd616.js'
+    script2.id = `script-extra-${containerId}`
+
+    // Clean up existing scripts
+    const existingScript1 = document.getElementById(`script-invoke-${containerId}`)
+    const existingScript2 = document.getElementById(`script-extra-${containerId}`)
+    if (existingScript1) existingScript1.remove()
+    if (existingScript2) existingScript2.remove()
 
     if (containerRef.current) {
       containerRef.current.innerHTML = ''
-      containerRef.current.appendChild(script)
+      containerRef.current.appendChild(script1)
+      containerRef.current.appendChild(script2)
     }
   }, [containerId])
 

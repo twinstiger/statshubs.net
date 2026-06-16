@@ -5,7 +5,7 @@ import { matches, standings, allArticles } from '@/lib/data'
 import { useState } from 'react'
 import { Language } from '@/lib/i18n'
 import { getTranslations, formatString } from '@/lib/translations'
-// import { ProductRecommendation, Adsterra728x90 } from '@/components/monetization'
+import { ProductRecommendation, Adsterra728x90 } from '@/components/monetization'
 
 interface HomeClientProps {
   lang: Language
@@ -188,11 +188,10 @@ export default function HomeClient({ lang }: HomeClientProps) {
         )}
       </section>
 
-      {/* Adsterra Ad - Temporarily disabled
+      {/* Adsterra Ad */}
       <section className="py-6 container mx-auto px-4">
         <Adsterra728x90 />
       </section>
-      */}
 
       {/* Tools Section */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
@@ -339,13 +338,12 @@ export default function HomeClient({ lang }: HomeClientProps) {
         </div>
       </section>
 
-      {/* Affiliate Products - Temporarily disabled
+      {/* Affiliate Products */}
       <section className="py-12 container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <ProductRecommendation lang={lang} />
         </div>
       </section>
-      */}
 
       {/* Downloads Section */}
       <section className="relative py-16 overflow-hidden">
