@@ -7,17 +7,18 @@ import { useState } from 'react'
 export default function NewsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
-  // World Cup themed gradient backgrounds for article cards
-  const cardGradients = [
-    'from-blue-900 to-blue-700',
-    'from-green-900 to-green-700',
-    'from-purple-900 to-purple-700',
-    'from-orange-900 to-orange-700',
-    'from-red-900 to-red-700',
-    'from-yellow-900 to-yellow-700',
-  ]
+  // Category-based gradients and icons for consistent card appearance
+  const categoryStyles: Record<string, { gradient: string; icon: string }> = {
+    preview: { gradient: 'from-blue-800 to-blue-600', icon: '⚽' },
+    analysis: { gradient: 'from-purple-800 to-purple-600', icon: '📊' },
+    guide: { gradient: 'from-green-800 to-green-600', icon: '📋' },
+    recap: { gradient: 'from-orange-800 to-orange-600', icon: '🏅' },
+    fan: { gradient: 'from-pink-800 to-pink-600', icon: '👏' },
+  }
 
-  const getGradient = (index: number) => cardGradients[index % cardGradients.length]
+  const getCategoryStyle = (category: string) => {
+    return categoryStyles[category] || categoryStyles.guide
+  }
 
   const categories = [
     { value: 'all', label: 'All News' },
@@ -74,14 +75,14 @@ export default function NewsPage() {
           <div className="mb-12">
             <div className="bg-white rounded-lg overflow-hidden shadow-sm">
               <div className="md:flex">
-                <div className="md:w-1/3 h-64 relative overflow-hidden">
+                <div className={`md:w-1/3 h-64 bg-gradient-to-br ${getCategoryStyle(filteredArticles[0].category).gradient} relative overflow-hidden`}>
                   <img
                     src="/images/hero-stadium.jpeg"
                     alt="World Cup 2026"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover opacity-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-blue-900/40 flex items-center justify-center">
-                    <span className="text-6xl">🏆</span>
+                  <div className="absolute top-4 right-4 text-4xl z-10">
+                    {getCategoryStyle(filteredArticles[0].category).icon}
                   </div>
                 </div>
                 <div className="md:w-2/3 p-8">
@@ -110,22 +111,20 @@ export default function NewsPage() {
 
         {/* Article Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredArticles.slice(1).map((article, idx) => (
-            <article key={article.slug} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className={`h-48 bg-gradient-to-br ${getGradient(idx)} flex items-center justify-center relative`}>
-                <img
-                  src="/images/hero-stadium.jpeg"
-                  alt={article.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-40"
-                />
-                <div className="relative z-10">
-                  {article.category === 'preview' && <span className="text-5xl">⚽</span>}
-                  {article.category === 'analysis' && <span className="text-5xl">📊</span>}
-                  {article.category === 'guide' && <span className="text-5xl">📋</span>}
-                  {article.category === 'fan' && <span className="text-5xl">👏</span>}
-                  {article.category === 'recap' && <span className="text-5xl">🏅</span>}
+          {filteredArticles.slice(1).map((article) => {
+            const style = getCategoryStyle(article.category)
+            return (
+              <article key={article.slug} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className={`h-40 bg-gradient-to-br ${style.gradient} relative overflow-hidden`}>
+                  <img
+                    src="/images/hero-stadium.jpeg"
+                    alt={article.title}
+                    className="w-full h-full object-cover opacity-30"
+                  />
+                  <div className="absolute top-3 right-3 text-3xl z-10">
+                    {style.icon}
+                  </div>
                 </div>
-              </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${categoryColors[article.category]}`}>
@@ -155,8 +154,9 @@ export default function NewsPage() {
                   </Link>
                 </div>
               </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </div>
 
         {/* Load More */}
