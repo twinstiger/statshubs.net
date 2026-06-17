@@ -1,12 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { matches, standings, allArticles } from '@/lib/data'
+import { matches, standings, teams } from '@/lib/data'
 import { useState } from 'react'
+
+// Helper to get team slug from name
+const getTeamSlug = (teamName: string) => {
+  const team = teams.find(t => t.name === teamName || t.name === teamName.replace('-', ' '))
+  return team?.slug || ''
+}
 
 export default function HomePage() {
   const [currentDate] = useState('2026-06-16')
-  const featuredArticles = allArticles.slice(0, 3)
 
   // 获取即将开始的比赛（未来7天内）
   const upcomingMatches = matches
@@ -135,11 +140,15 @@ export default function HomePage() {
 
                   <div className="flex items-center justify-between mb-4">
                     <div className="text-center flex-1">
-                      <p className="font-semibold text-lg">{match.homeTeam}</p>
+                      <Link href={`/tools/teams/${getTeamSlug(match.homeTeam)}`} className="font-semibold text-lg hover:text-blue-600">
+                        {match.homeTeam}
+                      </Link>
                     </div>
                     <div className="px-4 text-2xl font-bold text-gray-400">VS</div>
                     <div className="text-center flex-1">
-                      <p className="font-semibold text-lg">{match.awayTeam}</p>
+                      <Link href={`/tools/teams/${getTeamSlug(match.awayTeam)}`} className="font-semibold text-lg hover:text-blue-600">
+                        {match.awayTeam}
+                      </Link>
                     </div>
                   </div>
 
@@ -227,9 +236,13 @@ export default function HomePage() {
                   </thead>
                   <tbody>
                     {group.teams.map((team, idx) => (
-                      <tr key={team.team} className="border-b last:border-0">
+                      <tr key={team.team} className="border-b last:border-0 hover:bg-gray-50">
                         <td className="py-2">{idx + 1}</td>
-                        <td className="py-2 font-medium">{team.team}</td>
+                        <td className="py-2 font-medium">
+                          <Link href={`/tools/teams/${getTeamSlug(team.team)}`} className="hover:text-blue-600 hover:underline">
+                            {team.team}
+                          </Link>
+                        </td>
                         <td className="py-2 text-center">{team.played}</td>
                         <td className="py-2 text-center">{team.goalDifference > 0 ? '+' : ''}{team.goalDifference}</td>
                         <td className="py-2 text-center font-bold">{team.points}</td>
@@ -239,43 +252,6 @@ export default function HomePage() {
                 </table>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Latest News */}
-      <section className="py-12 container mx-auto px-4">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Latest News & Analysis</h2>
-          <Link href="/news" className="text-blue-600 hover:underline">
-            View All Articles →
-          </Link>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {featuredArticles.map((article) => (
-            <article key={article.slug} className="bg-white border rounded-lg overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                <span className="text-6xl">⚽</span>
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">
-                  {article.category}
-                </span>
-                <h3 className="font-bold text-lg mt-2 mb-2 line-clamp-2">
-                  <Link href={`/news/${article.slug}`} className="hover:text-blue-600">
-                    {article.title}
-                  </Link>
-                </h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>{article.readTime} min read</span>
-                  <span>{article.publishedAt}</span>
-                </div>
-              </div>
-            </article>
           ))}
         </div>
       </section>

@@ -1,41 +1,113 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { teams } from '@/lib/data'
-import { notFound } from 'next/navigation'
+import { TeamSquad } from '@/lib/teamData'
 
-interface PageProps {
-  params: Promise<{ slug: string }>
-}
+export default function TeamDetailPage() {
+  const params = useParams()
+  const slug = params?.slug as string
 
-export async function generateStaticParams() {
-  return teams.map((team) => ({
-    slug: team.slug,
-  }))
-}
+  const [squad, setSquad] = useState<TeamSquad | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-export default async function TeamDetailPage({ params }: PageProps) {
-  const { slug } = await params
+  // Find team info
   const team = teams.find((t) => t.slug === slug)
+  const groupTeams = teams.filter((t) => t.group === team?.group && t.slug !== slug)
+
+  useEffect(() => {
+    if (!slug) return
+
+    const fetchSquad = async () => {
+      setLoading(true)
+      setError(null)
+
+      try {
+        // Use local data
+        const { getTeamSquad } = await import('@/data/squads')
+        const localSquad = getTeamSquad(slug)
+
+        if (localSquad) {
+          setSquad(localSquad)
+        } else {
+          // Fallback: try API if local data not available
+          const { teamIds, getTeamApiUrl } = await import('@/lib/teamData')
+          const teamId = teamIds[slug]
+
+          if (!teamId) {
+            setError('Team data not available')
+            setLoading(false)
+            return
+          }
+
+          const apiUrl = getTeamApiUrl(teamId)
+          const response = await fetch(apiUrl)
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+          }
+
+          const data = await response.json()
+
+          if (data.code === 0 && data.data) {
+            setSquad(data.data)
+          } else {
+            setError(data.message || 'Failed to load squad data')
+          }
+        }
+      } catch (err: any) {
+        console.error('Error fetching squad:', err)
+        setError(err.message || 'Failed to load squad data')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchSquad()
+  }, [slug])
 
   if (!team) {
-    notFound()
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4">😕</div>
+          <h2 className="text-2xl font-bold mb-2">Team Not Found</h2>
+          <Link href="/tools/teams" className="text-blue-600 hover:underline">
+            ← Back to Teams
+          </Link>
+        </div>
+      </div>
+    )
   }
 
-  const samplePlayers = [
-    { id: '1', name: 'Top Scorer', position: 'Forward', age: 28, number: 9, club: 'Top European Club', goals: 12, caps: 45 },
-    { id: '2', name: 'Captain', position: 'Midfielder', age: 30, number: 8, club: 'Top European Club', goals: 8, caps: 72 },
-    { id: '3', name: 'Star Defender', position: 'Defender', age: 27, number: 4, club: 'Top European Club', goals: 2, caps: 38 },
-    { id: '4', name: 'Goalkeeper', position: 'Goalkeeper', age: 29, number: 1, club: 'Top European Club', goals: 0, caps: 52 },
-    { id: '5', name: 'Winger', position: 'Forward', age: 24, number: 11, club: 'Top European Club', goals: 15, caps: 28 },
-    { id: '6', name: 'Midfield Anchor', position: 'Midfielder', age: 26, number: 6, club: 'Top European Club', goals: 3, caps: 35 },
-    { id: '7', name: 'Center Back', position: 'Defender', age: 25, number: 3, club: 'Top European Club', goals: 1, caps: 22 },
-    { id: '8', name: 'Playmaker', position: 'Midfielder', age: 23, number: 10, club: 'Top European Club', goals: 10, caps: 18 },
-    { id: '9', name: 'Full Back', position: 'Defender', age: 26, number: 2, club: 'Top European Club', goals: 2, caps: 30 },
-    { id: '10', name: 'Striker', position: 'Forward', age: 22, number: 7, club: 'Top European Club', goals: 20, caps: 15 },
-  ]
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4 animate-pulse">⚽</div>
+          <div className="text-xl font-semibold text-gray-600">Loading squad data...</div>
+        </div>
+      </div>
+    )
+  }
 
-  const displayPlayers = team.squad.length > 0 ? team.squad : samplePlayers
+  // Combine all players
+  const allPlayers = squad ? [
+    ...(squad.goalkeeper || []).map(p => ({ ...p, position: 'GK' })),
+    ...(squad.back || []).map(p => ({ ...p, position: 'DEF' })),
+    ...(squad.midfield || []).map(p => ({ ...p, position: 'MID' })),
+    ...(squad.forward || []).map(p => ({ ...p, position: 'FWD' }))
+  ] : []
 
-  const groupTeams = teams.filter((t) => t.group === team.group && t.slug !== team.slug)
+  // Sort by shirt number
+  allPlayers.sort((a, b) => {
+    const numA = parseInt(a.shirtNumber) || 99
+    const numB = parseInt(b.shirtNumber) || 99
+    return numA - numB
+  })
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -55,9 +127,8 @@ export default async function TeamDetailPage({ params }: PageProps) {
               <div>
                 <h1 className="text-4xl font-bold mb-2">{team.name}</h1>
                 <div className="flex gap-6 text-blue-100">
-                  <span>🏆 FIFA Rank: #{team.ranking}</span>
-                  <span>📅 Manager: {team.manager}</span>
-                  <span>🌍 Group {team.group}</span>
+                  <span>🏆 Group {team.group}</span>
+                  <span>📅 Manager: {squad?.manager?.nameEn || team.manager}</span>
                 </div>
               </div>
             </div>
@@ -80,8 +151,8 @@ export default async function TeamDetailPage({ params }: PageProps) {
                   <p className="text-sm text-gray-600">World Cup Titles</p>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <p className="text-3xl font-bold text-blue-600">#{team.ranking}</p>
-                  <p className="text-sm text-gray-600">FIFA Ranking</p>
+                  <p className="text-3xl font-bold text-blue-600">{team.group}</p>
+                  <p className="text-sm text-gray-600">Group</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -90,63 +161,75 @@ export default async function TeamDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Squad */}
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h2 className="text-2xl font-bold mb-4">Squad Roster</h2>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-gray-50 text-left">
-                      <th className="px-4 py-3 text-sm font-semibold">#</th>
-                      <th className="px-4 py-3 text-sm font-semibold">Name</th>
-                      <th className="px-4 py-3 text-sm font-semibold">Position</th>
-                      <th className="px-4 py-3 text-sm font-semibold">Age</th>
-                      <th className="px-4 py-3 text-sm font-semibold">Club</th>
-                      <th className="px-4 py-3 text-sm font-semibold">Caps</th>
-                      <th className="px-4 py-3 text-sm font-semibold">Goals</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {displayPlayers.map((player, idx) => (
-                      <tr key={player.id} className="border-t hover:bg-gray-50">
-                        <td className="px-4 py-3 font-bold">{player.number}</td>
-                        <td className="px-4 py-3 font-medium">{player.name}</td>
-                        <td className="px-4 py-3 text-gray-600">{player.position}</td>
-                        <td className="px-4 py-3">{player.age}</td>
-                        <td className="px-4 py-3 text-gray-600">{player.club || '-'}</td>
-                        <td className="px-4 py-3">{player.caps ?? '-'}</td>
-                        <td className="px-4 py-3 font-bold text-green-600">{player.goals ?? '-'}</td>
+            {/* Squad Table */}
+            {error ? (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h2 className="text-2xl font-bold mb-4">Squad Roster</h2>
+                <div className="text-center py-8">
+                  <div className="text-4xl mb-4">😕</div>
+                  <p className="text-gray-600 mb-2">Unable to load squad data</p>
+                  <p className="text-sm text-gray-500">Error: {error}</p>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h2 className="text-2xl font-bold mb-4">Squad Roster ({allPlayers.length})</h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="bg-gray-50 text-left">
+                        <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">#</th>
+                        <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Name</th>
+                        <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Pos</th>
+                        <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Age</th>
+                        <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Height</th>
+                        <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Goals</th>
+                        <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Assists</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {allPlayers.map((player) => (
+                        <tr key={player.playerId} className="border-t hover:bg-gray-50">
+                          <td className="px-4 py-3 font-bold">{player.shirtNumber}</td>
+                          <td className="px-4 py-3">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 rounded-full bg-gray-100 overflow-hidden">
+                                <img
+                                  src={player.logo}
+                                  alt={player.nameEn}
+                                  className="w-full h-full object-cover"
+                                  onError={(e) => {
+                                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(player.nameEn)}&background=random`
+                                  }}
+                                />
+                              </div>
+                              <div>
+                                <p className="font-medium">{player.nameEn}</p>
+                                <p className="text-xs text-gray-500">{player.nameZh}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-4 py-3">
+                            <span className={`px-2 py-1 rounded text-xs font-medium ${
+                              player.position === 'GK' ? 'bg-yellow-100 text-yellow-700' :
+                              player.position === 'DEF' ? 'bg-blue-100 text-blue-700' :
+                              player.position === 'MID' ? 'bg-green-100 text-green-700' :
+                              'bg-red-100 text-red-700'
+                            }`}>
+                              {player.position}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">{player.age}</td>
+                          <td className="px-4 py-3">{player.height}cm</td>
+                          <td className="px-4 py-3 text-center font-bold text-green-600">{player.goals}</td>
+                          <td className="px-4 py-3 text-center font-bold text-blue-600">{player.assists}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-
-            {/* Analysis */}
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h2 className="text-2xl font-bold mb-4">Tournament Analysis</h2>
-              <div className="prose max-w-none">
-                <p className="mb-4">
-                  <strong>{team.name}</strong> enters the 2026 FIFA World Cup with high expectations
-                  following their impressive performance in recent international competitions.
-                  Led by experienced manager {team.manager}, the team combines veteran leadership
-                  with exciting young talent.
-                </p>
-                <h3 className="text-lg font-semibold mt-6 mb-3">Key Strengths</h3>
-                <ul className="list-disc pl-6 space-y-2 mb-4">
-                  <li>Strong defensive unit with experienced center-backs</li>
-                  <li>Creative midfield capable of controlling possession</li>
-                  <li>Clinical finishing from multiple attacking options</li>
-                  <li>Excellent squad depth across all positions</li>
-                </ul>
-                <h3 className="text-lg font-semibold mt-6 mb-3">Tournament Prospects</h3>
-                <p className="mb-4">
-                  In Group {team.group}, {team.name} will face competition from {groupTeams.map(t => t.name).join(', ')}.
-                  The team is expected to advance comfortably and make a deep run into the knockout stages.
-                </p>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Sidebar */}
@@ -155,7 +238,7 @@ export default async function TeamDetailPage({ params }: PageProps) {
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="font-bold text-lg mb-4">Group {team.group} Teams</h3>
               <div className="space-y-3">
-                {groupTeams.map((t, idx) => (
+                {groupTeams.map((t) => (
                   <Link
                     key={t.slug}
                     href={`/tools/teams/${t.slug}`}
@@ -164,20 +247,17 @@ export default async function TeamDetailPage({ params }: PageProps) {
                     <span className="text-2xl">{t.flag}</span>
                     <div>
                       <p className="font-medium">{t.name}</p>
-                      <p className="text-sm text-gray-500">Rank #{t.ranking}</p>
+                      <p className="text-sm text-gray-500">Manager: {t.manager}</p>
                     </div>
                   </Link>
                 ))}
-                <Link
-                  href={`/tools/teams/${team.slug}`}
-                  className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border-2 border-blue-200"
-                >
+                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border-2 border-blue-200">
                   <span className="text-2xl">{team.flag}</span>
                   <div>
                     <p className="font-medium">{team.name}</p>
                     <p className="text-sm text-blue-600">Current Team</p>
                   </div>
-                </Link>
+                </div>
               </div>
             </div>
 

@@ -1,10 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { matches, standings, allArticles } from '@/lib/data'
+import { matches, standings, teams } from '@/lib/data'
 import { useState } from 'react'
 import { Language } from '@/lib/i18n'
 import { getTranslations, formatString } from '@/lib/translations'
+
+// Helper to get team slug from name
+const getTeamSlug = (teamName: string) => {
+  const team = teams.find(t => t.name === teamName || t.name === teamName.replace('-', ' '))
+  return team?.slug || ''
+}
 
 interface HomeClientProps {
   lang: Language
@@ -13,7 +19,6 @@ interface HomeClientProps {
 export default function HomeClient({ lang }: HomeClientProps) {
   const [currentDate] = useState('2026-06-16')
   const t = getTranslations(lang)
-  const featuredArticles = allArticles.slice(0, 3)
 
   // 获取即将开始的比赛（未来7天内）
   const upcomingMatches = matches
@@ -159,14 +164,18 @@ export default function HomeClient({ lang }: HomeClientProps) {
                       <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded-full flex items-center justify-center">
                         <span className="text-2xl">⚽</span>
                       </div>
-                      <p className="font-semibold text-lg">{match.homeTeam}</p>
+                      <Link href={`/${lang === 'en' ? '' : lang + '/'}tools/teams/${getTeamSlug(match.homeTeam)}`} className="font-semibold text-lg hover:text-blue-600">
+                        {match.homeTeam}
+                      </Link>
                     </div>
                     <div className="px-4 text-2xl font-bold text-gray-300">VS</div>
                     <div className="text-center flex-1">
                       <div className="w-16 h-16 mx-auto mb-2 bg-gray-50 rounded-full flex items-center justify-center">
                         <span className="text-2xl">⚽</span>
                       </div>
-                      <p className="font-semibold text-lg">{match.awayTeam}</p>
+                      <Link href={`/${lang === 'en' ? '' : lang + '/'}tools/teams/${getTeamSlug(match.awayTeam)}`} className="font-semibold text-lg hover:text-blue-600">
+                        {match.awayTeam}
+                      </Link>
                     </div>
                   </div>
 
@@ -267,9 +276,13 @@ export default function HomeClient({ lang }: HomeClientProps) {
                   </thead>
                   <tbody>
                     {group.teams.map((team, idx) => (
-                      <tr key={team.team} className="border-b last:border-0">
+                      <tr key={team.team} className="border-b last:border-0 hover:bg-gray-50">
                         <td className="py-2">{idx + 1}</td>
-                        <td className="py-2 font-medium">{team.team}</td>
+                        <td className="py-2 font-medium">
+                          <Link href={`/${lang === 'en' ? '' : lang + '/'}tools/teams/${getTeamSlug(team.team)}`} className="hover:text-blue-600 hover:underline">
+                            {team.team}
+                          </Link>
+                        </td>
                         <td className="py-2 text-center">{team.played}</td>
                         <td className="py-2 text-center">{team.goalDifference > 0 ? '+' : ''}{team.goalDifference}</td>
                         <td className="py-2 text-center font-bold">{team.points}</td>
@@ -279,55 +292,6 @@ export default function HomeClient({ lang }: HomeClientProps) {
                 </table>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Latest News */}
-      <section className="py-12 container mx-auto px-4">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">{t.latestNews}</h2>
-          <Link href={`/${lang === 'en' ? '' : lang + '/'}news`} className="text-blue-600 hover:underline">
-            {t.viewAllArticles}
-          </Link>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {featuredArticles.map((article, idx) => (
-            <article key={article.slug} className="bg-white border rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={[
-                    'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600',
-                    'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600',
-                    'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=600'
-                  ][idx]}
-                  alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    {article.category}
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-lg mt-2 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                  <Link href={`/${lang === 'en' ? '' : lang + '/'}news/${article.slug}`}>
-                    {article.title}
-                  </Link>
-                </h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t">
-                  <span className="flex items-center gap-1">
-                    <span>📖</span> {article.readTime} min
-                  </span>
-                  <span>{article.publishedAt}</span>
-                </div>
-              </div>
-            </article>
           ))}
         </div>
       </section>

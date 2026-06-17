@@ -1,26 +1,26 @@
 import { Metadata } from 'next'
-import ScheduleClient from './ScheduleClient'
+import BracketPage from './bracket/BracketPage'
 
 export const metadata: Metadata = {
-  title: 'World Cup 2026 Schedule | Copa Mundial Fixtures | Match Times',
-  description: 'Complete FIFA World Cup 2026 schedule with Copa Mundial 2026 match times in all time zones. Download printable fixtures for Coupe du Monde 2026. All 104 matches with venue details.',
+  title: 'World Cup 2026 Match Schedule | Knockout Stage Bracket | Copa Mundial',
+  description: 'Complete match schedule for FIFA World Cup 2026. View knockout stage bracket with Round of 16, Quarterfinals, Semifinals, Final and team statistics.',
   keywords: [
     'World Cup 2026 schedule',
-    'Copa Mundial 2026 fixtures',
-    'Coupe du Monde 2026 schedule',
-    'FIFA ワールド カップ 2026 日程',
-    'brazil vs morocco',
-    'world cup 2026 matches',
-    'world cup fixtures',
-    'match times',
-    'venue schedule'
+    'Copa Mundial 2026 bracket',
+    'Knockout stage',
+    'Round of 16',
+    'Quarterfinals',
+    'Semifinals',
+    'Final',
+    'world cup bracket',
+    'elimination bracket'
   ],
   openGraph: {
-    title: 'FIFA World Cup 2026 Schedule | Copa Mundial Fixtures',
-    description: 'Complete World Cup 2026 match schedule with Copa Mundial fixtures and kickoff times worldwide.',
+    title: 'FIFA World Cup 2026 Match Schedule | Knockout Stage Bracket',
+    description: 'View the complete knockout stage bracket for World Cup 2026 with team matchups and statistics.',
   }
 }
 
 export default function SchedulePage() {
-  return <ScheduleClient />
+  return <BracketPage />
 }

@@ -1,10 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import { matches, timezones } from '@/lib/data'
+import Link from 'next/link'
+import { matches, timezones, teams } from '@/lib/data'
 import { formatDate, getGroupColor } from '@/lib/utils'
 import { formatInTimeZone } from 'date-fns-tz'
 import { parseISO } from 'date-fns'
+
+// Get team slug by name
+const getTeamSlug = (teamName: string) => {
+  const team = teams.find(t => t.name === teamName)
+  return team?.slug || ''
+}
 
 export default function TimezoneConverterPage() {
   const [selectedTimezone, setSelectedTimezone] = useState('America/New_York')
@@ -123,13 +130,17 @@ export default function TimezoneConverterPage() {
 
               <div className="flex items-center justify-between">
                 <div className="flex-1 text-center">
-                  <p className="font-bold text-lg">{match.homeTeam}</p>
+                  <Link href={`/tools/teams/${getTeamSlug(match.homeTeam)}`} className="font-bold text-lg hover:text-blue-600">
+                    {match.homeTeam}
+                  </Link>
                 </div>
                 <div className="px-8">
                   <span className="text-gray-400 text-xl">vs</span>
                 </div>
                 <div className="flex-1 text-center">
-                  <p className="font-bold text-lg">{match.awayTeam}</p>
+                  <Link href={`/tools/teams/${getTeamSlug(match.awayTeam)}`} className="font-bold text-lg hover:text-blue-600">
+                    {match.awayTeam}
+                  </Link>
                 </div>
               </div>
 

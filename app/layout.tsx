@@ -62,22 +62,21 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-white">
         <header className="bg-blue-900 text-white">
-          <div className="container mx-auto px-4 py-4">
+          <div className="container mx-auto px-4 py-4 min-w-[320px]">
             <nav className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <a href="/" className="text-2xl font-bold">⚽ World Cup 2026 Hub</a>
+                <a href="/" className="text-2xl font-bold whitespace-nowrap">⚽ World Cup 2026 Hub</a>
                 <div className="hidden md:block">
                   <LanguageSwitcher />
                 </div>
               </div>
               <div className="hidden md:flex gap-6">
-                <a href="/schedule" className="hover:underline">Schedule</a>
-                <a href="/tools/timezone-converter" className="hover:underline">Time Zone</a>
-                <a href="/tools/bracket-maker" className="hover:underline">Bracket</a>
-                <a href="/tools/standings" className="hover:underline">Standings</a>
-                <a href="/tools/teams" className="hover:underline">Teams</a>
-                <a href="/news" className="hover:underline">News</a>
-                <a href="/faq" className="hover:underline">FAQ</a>
+                <a href="/schedule" className="hover:underline whitespace-nowrap">Schedule</a>
+                <a href="/tools/timezone-converter" className="hover:underline whitespace-nowrap">Time Zone</a>
+                <a href="/tools/bracket-maker" className="hover:underline whitespace-nowrap">Bracket</a>
+                <a href="/tools/standings" className="hover:underline whitespace-nowrap">Standings</a>
+                <a href="/tools/teams" className="hover:underline whitespace-nowrap">Teams</a>
+                <a href="/faq" className="hover:underline whitespace-nowrap">FAQ</a>
               </div>
             </nav>
           </div>
@@ -86,7 +85,7 @@ export default function RootLayout({
         <main>{children}</main>
 
         <footer className="bg-slate-900 text-white mt-12">
-          <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto px-4 py-8 min-w-[320px]">
             <div className="grid md:grid-cols-4 gap-8">
               <div>
                 <h3 className="font-bold mb-4">Tools</h3>
@@ -102,7 +101,6 @@ export default function RootLayout({
                 <h3 className="font-bold mb-4">Information</h3>
                 <ul className="space-y-2">
                   <li><a href="/schedule" className="hover:underline">Match Schedule</a></li>
-                  <li><a href="/news" className="hover:underline">News & Analysis</a></li>
                   <li><a href="/downloads" className="hover:underline">Downloads</a></li>
                   <li><a href="/faq" className="hover:underline">FAQ</a></li>
                 </ul>

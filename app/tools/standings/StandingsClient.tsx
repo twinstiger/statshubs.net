@@ -1,15 +1,66 @@
 'use client'
 
-import { useState } from 'react'
-import { standings } from '@/lib/data'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { getGroupColor } from '@/lib/utils'
 
+interface StandingTeam {
+  rank: number
+  team: string
+  teamSlug: string
+  flag: string
+  played: number
+  won: number
+  drawn: number
+  lost: number
+  goalsFor: number
+  goalsAgainst: number
+  goalDifference: number
+  points: number
+}
+
+interface GroupStanding {
+  group: string
+  teams: StandingTeam[]
+}
+
 export default function StandingsClient() {
+  const [standings, setStandings] = useState<GroupStanding[]>([])
+  const [loading, setLoading] = useState(true)
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null)
   const [showRules, setShowRules] = useState(false)
 
+  useEffect(() => {
+    const fetchStandings = async () => {
+      try {
+        const response = await fetch('/api/standings')
+        const data = await response.json()
+        if (data.code === 0 && data.data) {
+          setStandings(data.data)
+        }
+      } catch (error) {
+        console.error('Error fetching standings:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchStandings()
+  }, [])
+
   const formatGD = (gd: number) => {
     return gd > 0 ? `+${gd}` : `${gd}`
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4 animate-pulse">⚽</div>
+          <div className="text-xl font-semibold text-gray-600">Loading standings...</div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -86,7 +137,12 @@ export default function StandingsClient() {
                           }`}
                         >
                           <td className="px-4 py-3 font-bold">{idx + 1}</td>
-                          <td className="px-4 py-3 font-medium">{team.team}</td>
+                          <td className="px-4 py-3">
+                            <Link href={`/tools/teams/${team.teamSlug}`} className="flex items-center gap-2 hover:text-blue-600">
+                              <span className="text-xl">{team.flag}</span>
+                              <span className="font-medium hover:underline">{team.team}</span>
+                            </Link>
+                          </td>
                           <td className="text-center px-2 py-3">{team.played}</td>
                           <td className="text-center px-2 py-3">{team.won}</td>
                           <td className="text-center px-2 py-3">{team.drawn}</td>
