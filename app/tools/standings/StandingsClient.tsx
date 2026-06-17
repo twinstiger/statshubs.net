@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Script from 'next/script'
 import { getGroupColor } from '@/lib/utils'
 
 interface StandingTeam {
@@ -100,6 +101,31 @@ export default function StandingsClient() {
                 Group {group}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Advertisement */}
+        <div className="mb-6">
+          <div className="w-full max-w-[728px] mx-auto">
+            <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
+            <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+              <Script
+                async
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    var _pop = _pop || [];
+                    _pop.push(['place', '728x90']);
+                    (function() {
+                      var s = document.createElement('script');
+                      s.src = '//pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js';
+                      s.async = true;
+                      document.head.appendChild(s);
+                    })();
+                  `
+                }}
+              />
+              <div id="728x90"></div>
+            </div>
           </div>
         </div>
 

@@ -5,6 +5,7 @@ import { matches, standings, teams } from '@/lib/data'
 import { useState } from 'react'
 import { Language } from '@/lib/i18n'
 import { getTranslations, formatString } from '@/lib/translations'
+import Script from 'next/script'
 
 // Helper to get team slug from name
 const getTeamSlug = (teamName: string) => {
@@ -194,6 +195,31 @@ export default function HomeClient({ lang }: HomeClientProps) {
             <p className="text-gray-600">All matches have been played. Check the results!</p>
           </div>
         )}
+      </section>
+
+      {/* Advertisement */}
+      <section className="py-6 container mx-auto px-4">
+        <div className="w-full max-w-[728px] mx-auto">
+          <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
+          <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+            <Script
+              async
+              dangerouslySetInnerHTML={{
+                __html: `
+                  var _pop = _pop || [];
+                  _pop.push(['place', '728x90']);
+                  (function() {
+                    var s = document.createElement('script');
+                    s.src = '//pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js';
+                    s.async = true;
+                    document.head.appendChild(s);
+                  })();
+                `
+              }}
+            />
+            <div id="728x90"></div>
+          </div>
+        </div>
       </section>
 
       {/* Tools Section */}
