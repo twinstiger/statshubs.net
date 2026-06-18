@@ -4,6 +4,8 @@
 
 import * as fs from 'fs'
 import * as path from 'path'
+import https from 'https'
+import type { IncomingMessage } from 'http'
 
 // Team IDs mapping
 const teamIds: Record<string, number> = {
@@ -120,7 +122,7 @@ async function fetchSquads() {
 
     try {
       const data = await new Promise<string>((resolve, reject) => {
-        https.get(url.toString(), { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+        https.get(url.toString(), { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res: IncomingMessage) => {
           let data = ''
           res.on('data', (chunk) => (data += chunk))
           res.on('end', () => resolve(data))
