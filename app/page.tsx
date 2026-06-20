@@ -287,10 +287,8 @@ export default function HomePage() {
             <Script
               id="adsterra-invoke"
               src="//pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js"
-              async
-              strategy="lazyOnload"
+              strategy="afterInteractive"
             />
-            <div id="728x90"></div>
           </div>
         </div>
       </section>
