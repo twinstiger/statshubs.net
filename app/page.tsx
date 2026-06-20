@@ -10,8 +10,17 @@ const getTeamSlug = (teamName: string) => {
   return team?.slug || ''
 }
 
+// Get today's date in YYYY-MM-DD format
+const getTodayString = () => {
+  const today = new Date()
+  const year = today.getFullYear()
+  const month = String(today.getMonth() + 1).padStart(2, '0')
+  const day = String(today.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 export default function HomePage() {
-  const [currentDate] = useState('2026-06-16')
+  const [currentDate] = useState(getTodayString())
 
   // 获取即将开始的比赛（未来7天内）
   const upcomingMatches = matches
