@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { teams } from '@/lib/data'
 import Link from 'next/link'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 interface GroupPrediction {
   first: string
@@ -116,7 +117,8 @@ export default function BracketMakerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <>
+      <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
@@ -356,5 +358,10 @@ export default function BracketMakerPage() {
         </div>
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

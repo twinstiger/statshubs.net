@@ -1,18 +1,11 @@
-import GalleryClient from './GalleryClient'
-import { Language } from '@/lib/i18n'
+'use client'
+
 import Script from 'next/script'
 
-interface GalleryPageProps {
-  params: Promise<{ lang: string }>
-}
-
-export default async function GalleryPage({ params }: GalleryPageProps) {
-  const { lang } = await params
+export function AdScript() {
   return (
     <>
-      <GalleryClient lang={lang as Language} />
-
-      {/* Advertisement */}
+      {/* Adsterra/Monetag Main Script */}
       <Script
         id="adsterra-invoke"
         async
@@ -29,11 +22,24 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
           `
         }}
       />
+
+      {/* Adsterra/Monetag Secondary Script */}
       <Script
         id="adsterra-secondary"
         src="https://pl29763342.effectivecpmnetwork.com/76/24/27/762427d2c49841bf978fdff5e81cd616.js"
         async
       />
     </>
+  )
+}
+
+export function AdBanner() {
+  return (
+    <div className="w-full max-w-[728px] mx-auto my-6">
+      <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
+      <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+        <div id="728x90"></div>
+      </div>
+    </div>
   )
 }

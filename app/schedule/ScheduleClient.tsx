@@ -7,6 +7,7 @@ import { getGroupColor } from '@/lib/utils'
 import { timezones } from '@/lib/data'
 import { formatInTimeZone } from 'date-fns-tz'
 import { parseISO } from 'date-fns'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 // Get team slug by name
 const getTeamSlug = (teamName: string) => {
@@ -86,7 +87,8 @@ export default function ScheduleClient() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white py-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -338,5 +340,10 @@ export default function ScheduleClient() {
         )}
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

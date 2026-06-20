@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { teams } from '@/lib/data'
 import { TeamSquad } from '@/lib/teamData'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 export default function TeamDetailPage() {
   const params = useParams()
@@ -110,7 +111,8 @@ export default function TeamDetailPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <>
+      <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
         <nav className="mb-6 text-sm">
@@ -283,5 +285,10 @@ export default function TeamDetailPage() {
         </div>
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

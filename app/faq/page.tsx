@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -69,8 +70,9 @@ export default function FAQPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="container mx-auto px-4 max-w-3xl">
+    <>
+      <div className="min-h-screen bg-gray-50 py-12">
+        <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-3xl font-bold mb-4 text-center">Frequently Asked Questions</h1>
         <p className="text-gray-600 text-center mb-8">
           Everything you need to know about the 2026 World Cup and our tools
@@ -104,5 +106,10 @@ export default function FAQPage() {
         </div>
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

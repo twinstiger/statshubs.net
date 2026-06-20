@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
 import Script from 'next/script'
 import { matches, teams } from '@/lib/data'
 import { Language } from '@/lib/i18n'
@@ -12,7 +11,6 @@ interface ScheduleClientProps {
   lang: Language
 }
 
-type ViewMode = 'list' | 'bracket'
 type StageFilter = 'all' | 'group' | 'round16' | 'quarterfinal' | 'semifinal' | 'third' | 'final'
 
 // Get team flag by name
@@ -128,7 +126,6 @@ const filterTabs = [
 export default function ScheduleClient({ lang }: ScheduleClientProps) {
   const [filter, setFilter] = useState<StageFilter>('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [viewMode, setViewMode] = useState<ViewMode>('list')
 
   const t = getTranslations(lang)
 
@@ -208,26 +205,9 @@ export default function ScheduleClient({ lang }: ScheduleClientProps) {
           {/* View Mode Toggle */}
           <div className="flex flex-wrap justify-between items-center gap-4 mb-6 pb-5 border-b border-gradient-to-r from-blue-100 to-transparent">
             <div className="flex gap-3">
-              <button
-                onClick={() => setViewMode('list')}
-                className={`px-6 py-3 rounded-xl text-sm font-bold transition-all duration-200 flex items-center gap-2.5 shadow-lg ${
-                  viewMode === 'list'
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-blue-600/40 scale-105'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:shadow-xl'
-                }`}
-              >
-                <span className="text-lg">📋</span> Match List
-              </button>
-              <button
-                onClick={() => setViewMode('bracket')}
-                className={`px-6 py-3 rounded-xl text-sm font-bold transition-all duration-200 flex items-center gap-2.5 shadow-lg ${
-                  viewMode === 'bracket'
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-blue-600/40 scale-105'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:shadow-xl'
-                }`}
-              >
+              <div className="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-200 flex items-center gap-2.5 shadow-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-blue-600/40">
                 <span className="text-lg">🏆</span> Tournament Bracket
-              </button>
+              </div>
             </div>
             <div className="text-sm text-slate-600 font-semibold tracking-wide">
               {filteredMatches.length} matches found
@@ -288,138 +268,18 @@ export default function ScheduleClient({ lang }: ScheduleClientProps) {
                   `
                 }}
               />
+              <Script
+                id="adsterra-secondary"
+                src="https://pl29763342.effectivecpmnetwork.com/76/24/27/762427d2c49841bf978fdff5e81cd616.js"
+                async
+              />
               <div id="728x90"></div>
             </div>
           </div>
         </div>
 
-        {/* Content - List or Bracket View */}
-        {viewMode === 'bracket' ? (
-          <BracketClient lang={lang} />
-        ) : (
-        /* Match List */
-        <div className="space-y-6">
-          {filteredMatches.length === 0 ? (
-            <div className="bg-white rounded-2xl p-16 text-center shadow-lg border border-slate-100">
-              <div className="text-7xl mb-5">🔍</div>
-              <h3 className="text-2xl font-bold mb-3 text-slate-800">No matches found</h3>
-              <p className="text-slate-500 text-lg">Try adjusting your search or filters</p>
-            </div>
-          ) : (
-            filteredMatches.map((match) => {
-              const isCompleted = isMatchCompleted(match.date)
-
-              return (
-                <div
-                  key={match.id}
-                  className={`group relative overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/10 hover:-translate-y-0.5 ${
-                    isCompleted
-                      ? 'bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200'
-                      : 'bg-white border border-blue-100 shadow-lg shadow-blue-900/5'
-                  }`}
-                >
-                  {/* Status Indicator Line */}
-                  <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${
-                    isCompleted
-                      ? 'bg-gradient-to-b from-emerald-400 to-emerald-600'
-                      : 'bg-gradient-to-b from-blue-500 to-indigo-600'
-                  }`}></div>
-
-                  <div className="p-8 pl-10 flex items-center gap-10">
-                    {/* Status Badge */}
-                    <div className="flex-shrink-0">
-                      <div className={`px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider ${
-                        isCompleted
-                          ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
-                          : 'bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 border border-blue-200'
-                      }`}>
-                        {isCompleted ? '✓ Completed' : '⏳ Upcoming'}
-                      </div>
-                    </div>
-
-                    {/* Date & Time - Enhanced with clear separation */}
-                    <div className="flex-shrink-0 w-40 text-left border-r-2 border-slate-200 pr-8">
-                      <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${isCompleted ? 'text-slate-400' : 'text-blue-600'}`}>
-                        {formatDateOnly(match.date, lang)}
-                      </div>
-                      <div className={`text-xl font-black tracking-tight ${isCompleted ? 'text-slate-600' : 'text-slate-900'}`}>
-                        {match.date}
-                      </div>
-                      <div className={`text-base font-bold mt-2 ${isCompleted ? 'text-slate-500' : 'text-slate-600'}`}>
-                        🕐 {match.time}
-                      </div>
-                    </div>
-
-                    {/* Teams - Enhanced Typography with clear separation */}
-                    <div className="flex-1 flex items-center justify-center gap-12">
-                      {/* Home Team */}
-                      <div className="flex-1 flex items-center justify-end gap-6">
-                        <div className="text-right">
-                          <Link href={`/tools/teams/${getTeamSlug(match.homeTeam)}`} className={`font-black text-3xl tracking-tight leading-tight hover:text-blue-600 transition-colors ${isCompleted ? 'text-slate-500' : 'text-slate-900'}`}>
-                            {match.homeTeam}
-                          </Link>
-                          <div className={`text-xs font-bold mt-3 uppercase tracking-widest ${isCompleted ? 'text-slate-400' : 'text-slate-400'}`}>
-                            Home
-                          </div>
-                        </div>
-                        <span className="text-5xl filter drop-shadow-lg">{getTeamFlag(match.homeTeam)}</span>
-                      </div>
-
-                      {/* VS Badge - Enhanced */}
-                      <div className={`flex-shrink-0 px-10 py-5 rounded-2xl font-black text-lg tracking-widest ${
-                        isCompleted
-                          ? 'bg-slate-200 text-slate-500'
-                          : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-2xl shadow-blue-600/40'
-                      }`}>
-                        VS
-                      </div>
-
-                      {/* Away Team */}
-                      <div className="flex-1 flex items-center gap-6">
-                        <span className="text-5xl filter drop-shadow-lg">{getTeamFlag(match.awayTeam)}</span>
-                        <div className="text-left">
-                          <Link href={`/tools/teams/${getTeamSlug(match.awayTeam)}`} className={`font-black text-3xl tracking-tight leading-tight hover:text-blue-600 transition-colors ${isCompleted ? 'text-slate-500' : 'text-slate-900'}`}>
-                            {match.awayTeam}
-                          </Link>
-                          <div className={`text-xs font-bold mt-3 uppercase tracking-widest ${isCompleted ? 'text-slate-400' : 'text-slate-400'}`}>
-                            Away
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Venue & Location - Enhanced with clear separation */}
-                    <div className="flex-shrink-0 w-48 text-left border-l-2 border-slate-200 pl-8">
-                      <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${isCompleted ? 'text-slate-400' : 'text-slate-500'}`}>
-                        Venue
-                      </div>
-                      <div className={`text-base font-bold leading-tight ${isCompleted ? 'text-slate-500' : 'text-slate-800'}`}>
-                        📍 {match.venue}
-                      </div>
-                      <div className={`text-sm font-medium mt-2 ${isCompleted ? 'text-slate-400' : 'text-slate-500'}`}>
-                        {match.city}
-                      </div>
-                    </div>
-
-                    {/* Group/Stage Badge - Enhanced */}
-                    <div className="flex-shrink-0">
-                      {match.group ? (
-                        <div className="inline-flex items-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm font-black rounded-xl shadow-xl shadow-blue-600/30 uppercase tracking-wider">
-                          <span>🏆</span> Group {match.group}
-                        </div>
-                      ) : (
-                        <div className="inline-flex items-center gap-2 px-6 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-black rounded-xl shadow-xl shadow-amber-500/30 uppercase tracking-wider">
-                          <span>⚡</span> {getStageLabel(match.stage)}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )
-            })
-          )}
-        </div>
-        )}
+        {/* Content - Bracket View Only */}
+        <BracketClient lang={lang} />
 
         {/* Summary Footer */}
         <div className="mt-8 bg-white/80 backdrop-blur-sm rounded-2xl p-7 shadow-xl shadow-blue-900/10 border border-blue-100/50">

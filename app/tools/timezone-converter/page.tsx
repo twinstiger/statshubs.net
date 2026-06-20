@@ -6,6 +6,7 @@ import { matches, timezones, teams } from '@/lib/data'
 import { formatDate, getGroupColor } from '@/lib/utils'
 import { formatInTimeZone } from 'date-fns-tz'
 import { parseISO } from 'date-fns'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 // Get team slug by name
 const getTeamSlug = (teamName: string) => {
@@ -44,7 +45,8 @@ export default function TimezoneConverterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <>
+      <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
@@ -204,5 +206,10 @@ export default function TimezoneConverterPage() {
         </div>
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { matches } from '@/lib/data'
 import { formatDate } from '@/lib/utils'
 import { timezones } from '@/lib/data'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 export default function ScheduleGeneratorPage() {
   const [selectedTimezone, setSelectedTimezone] = useState('UTC')
@@ -88,7 +89,8 @@ export default function ScheduleGeneratorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <>
+      <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
@@ -292,5 +294,10 @@ export default function ScheduleGeneratorPage() {
         </div>
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

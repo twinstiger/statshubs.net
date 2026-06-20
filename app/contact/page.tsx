@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { AdScript, AdBanner } from '@/components/ads/AdScript'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,7 +20,8 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <>
+      <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl font-bold mb-4 text-center">Contact Us</h1>
         <p className="text-gray-600 text-center mb-8">
@@ -236,5 +238,10 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+
+    <AdBanner />
+
+    <AdScript />
+    </>
   )
 }

@@ -124,6 +124,11 @@ export default function StandingsClient() {
                   `
                 }}
               />
+              <Script
+                id="adsterra-secondary"
+                src="https://pl29763342.effectivecpmnetwork.com/76/24/27/762427d2c49841bf978fdff5e81cd616.js"
+                async
+              />
               <div id="728x90"></div>
             </div>
           </div>
