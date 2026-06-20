@@ -286,7 +286,7 @@ export default function HomePage() {
           <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
             <Script
               id="adsterra-invoke"
-              src="//pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js"
+              src="//pl29763332.effectivecpmnetwork.com/29662833/invoke.js"
               strategy="afterInteractive"
             />
           </div>
