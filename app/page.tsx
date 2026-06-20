@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { matches, standings, teams } from '@/lib/data'
 import { useState } from 'react'
+import Script from 'next/script'
 
 // Helper to get team slug from name
 const getTeamSlug = (teamName: string) => {
@@ -275,6 +276,37 @@ export default function HomePage() {
           <Link href="/downloads" className="inline-block bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
             Browse Downloads →
           </Link>
+        </div>
+      </section>
+
+      {/* Advertisement */}
+      <section className="py-6 container mx-auto px-4">
+        <div className="w-full max-w-[728px] mx-auto">
+          <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
+          <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+            <Script
+              id="adsterra-invoke"
+              async
+              dangerouslySetInnerHTML={{
+                __html: `
+                  var _pop = _pop || [];
+                  _pop.push(['place', '728x90']);
+                  (function() {
+                    var s = document.createElement('script');
+                    s.src = '//pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js';
+                    s.async = true;
+                    document.head.appendChild(s);
+                  })();
+                `
+              }}
+            />
+            <Script
+              id="adsterra-secondary"
+              src="https://pl29763342.effectivecpmnetwork.com/76/24/27/762427d2c49841bf978fdff5e81cd616.js"
+              async
+            />
+            <div id="728x90"></div>
+          </div>
         </div>
       </section>
     </div>
