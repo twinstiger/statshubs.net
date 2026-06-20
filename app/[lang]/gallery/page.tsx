@@ -22,7 +22,7 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
             _pop.push(['place', '728x90']);
             (function() {
               var s = document.createElement('script');
-              s.src = '//pl29763332.effectivecpmnetwork.com/29662833/invoke.js';
+              s.src = '//pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js';
               s.async = true;
               document.head.appendChild(s);
             })();
