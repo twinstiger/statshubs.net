@@ -93,6 +93,106 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       description: 'Official replica national team jersey',
       price: '$89.99',
       image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'worldcup-flag-set',
+      asin: 'B07Y8Y3T2K',
+      name: 'World Cup 2026 Flag Set - All 48 Teams',
+      description: 'Set of 48 mini flags for all participating nations',
+      price: '$24.99',
+      image: 'https://m.media-amazon.com/images/I/71FHrB8vSEL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'streaming-device',
+      asin: 'B08J8B1SH1',
+      name: 'Fire TV Stick 4K Max - Stream World Cup Games',
+      description: '4K streaming device for watching matches online',
+      price: '$54.99',
+      image: 'https://m.media-amazon.com/images/I/51MFEJVrRcL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'snacks-package',
+      asin: 'B07S6ZL94D',
+      name: 'World Cup Party Snack Bundle',
+      description: 'Complete party package with snacks and treats',
+      price: '$39.99',
+      image: 'https://m.media-amazon.com/images/I/81WZ6Q9UoTL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'tv-soundbar',
+      asin: 'B08M2X14XN',
+      name: 'Soundbar for Match Day Experience',
+      description: 'Premium soundbar for immersive match audio',
+      price: '$129.99',
+      image: 'https://m.media-amazon.com/images/I/71DhG6x5XpL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'hd-projector',
+      asin: 'B08TFS8Q6L',
+      name: 'HD Projector for Big Screen Viewing',
+      description: 'Projector for watching games on a giant screen',
+      price: '$299.99',
+      image: 'https://m.media-amazon.com/images/I/71vZ6W2GJEL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'worldcup-book',
+      asin: 'B09V3L2KMB',
+      name: 'World Cup 2026 Official Guide Book',
+      description: 'Official tournament guide with team profiles',
+      price: '$34.99',
+      image: 'https://m.media-amazon.com/images/I/71pWnk2Q4EL._AC_SL1500_.jpg'
+    }
+  ],
+  es: [
+    {
+      id: 'pelota-mundial',
+      asin: 'B09V3KXJPB',
+      name: 'Adidas Al Rihla - Balón Oficial Copa Mundial 2026',
+      description: 'Balón oficial del partido para la Copa Mundial FIFA 2026',
+      price: '$165.00',
+      image: 'https://m.media-amazon.com/images/I/51H0x6qN0XL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'camiseta-equipo',
+      asin: 'B08XZH3ZKK',
+      name: 'Camiseta de Equipo Copa Mundial - Réplica Premium',
+      description: 'Camiseta de réplica oficial del equipo nacional',
+      price: '$89.99',
+      image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'banderas-mundial',
+      asin: 'B07Y8Y3T2K',
+      name: 'Pack de Banderas Copa Mundial 2026 - 48 Equipos',
+      description: 'Set de 48 mini banderas para todas las naciones participantes',
+      price: '$24.99',
+      image: 'https://m.media-amazon.com/images/I/71FHrB8vSEL._AC_SL1500_.jpg'
+    }
+  ],
+  fr: [
+    {
+      id: 'ballon-mondial',
+      asin: 'B09V3KXJPB',
+      name: 'Adidas Al Rihla - Ballon Officiel Coupe du Monde 2026',
+      description: 'Ballon officiel pour la Coupe du Monde FIFA 2026',
+      price: '$165.00',
+      image: 'https://m.media-amazon.com/images/I/51H0x6qN0XL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'maillot-equipe',
+      asin: 'B08XZH3ZKK',
+      name: 'Maillot Équipe Coupe du Monde - Réplique Premium',
+      description: 'Maillot réplique officiel d\'équipe nationale',
+      price: '$89.99',
+      image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'drapeaux-mondial',
+      asin: 'B07Y8Y3T2K',
+      name: 'Pack Drapeaux Coupe du Monde 2026 - 48 Équipes',
+      description: 'Set de 48 mini drapeaux pour toutes les nations participantes',
+      price: '$24.99',
+      image: 'https://m.media-amazon.com/images/I/71FHrB8vSEL._AC_SL1500_.jpg'
     }
   ]
 }
@@ -123,6 +223,25 @@ export function ProductRecommendation({ lang = 'en' }: { lang?: string }) {
       </div>
       <p className="text-xs text-gray-500 mt-4">
         * We may earn a commission from qualifying purchases made through our affiliate links.
+      </p>
+    </div>
+  )
+}
+
+// 产品展示区域组件
+export function AffiliateSection({ lang = 'en', title = 'Recommended Products' }: { lang?: string, title?: string }) {
+  const products = affiliateProducts[lang] || affiliateProducts.en
+
+  return (
+    <div className="mt-8">
+      <h3 className="text-xl font-bold mb-4">{title}</h3>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} lang={lang} />
+        ))}
+      </div>
+      <p className="text-xs text-gray-500 mt-4">
+        * We may earn a commission from qualifying purchases made through our affiliate links. Prices may vary.
       </p>
     </div>
   )

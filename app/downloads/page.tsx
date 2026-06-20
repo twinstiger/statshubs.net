@@ -1,4 +1,5 @@
 import Script from 'next/script'
+import AffiliateProductsSection from '@/components/affiliate/AffiliateProductsSection'
 
 export default function DownloadsPage() {
   const downloads = [
@@ -125,29 +126,7 @@ export default function DownloadsPage() {
         </div>
 
         {/* Affiliate Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-4 text-center">🎁 Official Merchandise</h2>
-          <p className="text-center text-gray-600 mb-6">
-            Support your team with official World Cup merchandise from our partners.
-          </p>
-          <div className="grid md:grid-cols-3 gap-4">
-            <a href="https://amazon.com/world-cup-jerseys" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-2">👕</div>
-              <h4 className="font-semibold">Team Jerseys</h4>
-              <p className="text-sm text-gray-600">Official jerseys & kits</p>
-            </a>
-            <a href="https://amazon.com/world-cup-merchandise" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-2">🎉</div>
-              <h4 className="font-semibold">Party Supplies</h4>
-              <p className="text-sm text-gray-600">Decorations & accessories</p>
-            </a>
-            <a href="https://amazon.com/world-cup-gear" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-2">🏠</div>
-              <h4 className="font-semibold">Home & Living</h4>
-              <p className="text-sm text-gray-600">Flags, banners & more</p>
-            </a>
-          </div>
-        </div>
+        <AffiliateProductsSection />
 
         {/* Request Section */}
         <div className="mt-12 bg-white rounded-lg p-8 shadow-sm">
