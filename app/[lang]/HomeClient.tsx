@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { Language } from '@/lib/i18n'
 import { getTranslations, formatString } from '@/lib/translations'
 import Script from 'next/script'
+import { AffiliateSection } from '@/components/affiliate/AmazonAssociates'
 
 // Helper to get team slug from name
 const getTeamSlug = (teamName: string) => {
@@ -333,6 +334,15 @@ export default function HomeClient({ lang }: HomeClientProps) {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Amazon Affiliate Products */}
+      <section className="py-12 container mx-auto px-4">
+        <div className="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold mb-2 text-center">Official World Cup Merchandise</h2>
+          <p className="text-center text-gray-600 mb-6">Support your team with official gear from Amazon</p>
+          <AffiliateSection lang={lang} title="" />
         </div>
       </section>
 
