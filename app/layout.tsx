@@ -59,6 +59,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="P0eO9DmLbQFmkDhD8iEua94zFjM_p1mnLdiyPyrzmss" />
       </head>
       <body className="min-h-screen bg-white">
         <header className="bg-blue-900 text-white">
