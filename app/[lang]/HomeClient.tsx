@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { matches, standings, teams } from '@/lib/data'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Language } from '@/lib/i18n'
 import { getTranslations, formatString } from '@/lib/translations'
 import Script from 'next/script'
@@ -13,12 +13,21 @@ const getTeamSlug = (teamName: string) => {
   return team?.slug || ''
 }
 
+// Get today's date in YYYY-MM-DD format
+const getTodayString = () => {
+  const today = new Date()
+  const year = today.getFullYear()
+  const month = String(today.getMonth() + 1).padStart(2, '0')
+  const day = String(today.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 interface HomeClientProps {
   lang: Language
 }
 
 export default function HomeClient({ lang }: HomeClientProps) {
-  const [currentDate] = useState('2026-06-16')
+  const [currentDate, setCurrentDate] = useState(getTodayString())
   const t = getTranslations(lang)
 
   // 获取即将开始的比赛（未来7天内）
