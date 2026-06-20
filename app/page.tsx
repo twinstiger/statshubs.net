@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { matches, standings, teams } from '@/lib/data'
 import { useState } from 'react'
 import Script from 'next/script'
+import { AffiliateSection } from '@/components/affiliate/AmazonAssociates'
 
 // Helper to get team slug from name
 const getTeamSlug = (teamName: string) => {
@@ -266,7 +267,16 @@ export default function HomePage() {
         </div>
       </section>
 
-{/* Downloads Section */}
+      {/* Amazon Affiliate Products */}
+      <section className="py-12 container mx-auto px-4">
+        <div className="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold mb-2 text-center">Official World Cup Merchandise</h2>
+          <p className="text-center text-gray-600 mb-6">Support your team with official gear from Amazon</p>
+          <AffiliateSection lang="en" title="" />
+        </div>
+      </section>
+
+      {/* Downloads Section */}
       <section className="py-12 bg-blue-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Free Downloads</h2>
