@@ -84,118 +84,118 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
   en: [
     {
       id: 'worldcup-ball-2026',
-      asin: 'B09V3KXJPB',
-      name: 'Adidas Al Rihla - Official World Cup 2026 Ball',
-      description: 'Official match ball for FIFA World Cup 2026',
-      price: '$165.00',
-      image: 'https://m.media-amazon.com/images/I/51H0x6qN0XL._AC_SL1500_.jpg'
+      asin: 'B0BSHDWR8K',
+      name: 'Adidas World Cup 2026 Official Match Ball',
+      description: 'Official FIFA World Cup match ball',
+      price: '$149.99',
+      image: 'https://m.media-amazon.com/images/I/61JvNbHLWQL._AC_SL1500_.jpg'
     },
     {
-      id: 'jersey-generic',
-      asin: 'B08XZH3ZKK',
-      name: 'World Cup Team Jersey - Premium Replica',
-      description: 'Official replica national team jersey',
-      price: '$89.99',
-      image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+      id: 'fifa-ps5',
+      asin: 'B0B14F5KLM',
+      name: 'EA Sports FC 25 - World Cup Edition',
+      description: 'Official video game with World Cup mode',
+      price: '$69.99',
+      image: 'https://m.media-amazon.com/images/I/81MTv5eRLNL._AC_SL1500_.jpg'
     },
     {
       id: 'worldcup-flag-set',
-      asin: 'B07Y8Y3T2K',
-      name: 'World Cup 2026 Flag Set - All 48 Teams',
-      description: 'Set of 48 mini flags for all participating nations',
-      price: '$24.99',
+      asin: 'B09V3KXJPB',
+      name: 'World Cup 2026 Flag Set - 48 Teams',
+      description: 'Mini flags for all participating nations',
+      price: '$19.99',
       image: 'https://m.media-amazon.com/images/I/71FHrB8vSEL._AC_SL1500_.jpg'
     },
     {
       id: 'streaming-device',
-      asin: 'B08J8B1SH1',
-      name: 'Fire TV Stick 4K Max - Stream World Cup Games',
-      description: '4K streaming device for watching matches online',
+      asin: 'B09JFCF7V3',
+      name: 'Fire TV Stick 4K Max - Stream World Cup',
+      description: '4K streaming for watching matches online',
       price: '$54.99',
       image: 'https://m.media-amazon.com/images/I/51MFEJVrRcL._AC_SL1500_.jpg'
     },
     {
-      id: 'snacks-package',
-      asin: 'B07S6ZL94D',
-      name: 'World Cup Party Snack Bundle',
-      description: 'Complete party package with snacks and treats',
-      price: '$39.99',
-      image: 'https://m.media-amazon.com/images/I/81WZ6Q9UoTL._AC_SL1500_.jpg'
-    },
-    {
       id: 'tv-soundbar',
-      asin: 'B08M2X14XN',
-      name: 'Soundbar for Match Day Experience',
+      asin: 'B08M2CL8BK',
+      name: 'Sonos Ray Soundbar - Game Day Audio',
       description: 'Premium soundbar for immersive match audio',
-      price: '$129.99',
+      price: '$279.00',
       image: 'https://m.media-amazon.com/images/I/71DhG6x5XpL._AC_SL1500_.jpg'
     },
     {
       id: 'hd-projector',
       asin: 'B08TFS8Q6L',
-      name: 'HD Projector for Big Screen Viewing',
+      name: 'BenQ HD Projector - Big Screen Viewing',
       description: 'Projector for watching games on a giant screen',
-      price: '$299.99',
+      price: '$649.00',
       image: 'https://m.media-amazon.com/images/I/71vZ6W2GJEL._AC_SL1500_.jpg'
     },
     {
-      id: 'worldcup-book',
-      asin: 'B09V3L2KMB',
-      name: 'World Cup 2026 Official Guide Book',
-      description: 'Official tournament guide with team profiles',
-      price: '$34.99',
-      image: 'https://m.media-amazon.com/images/I/71pWnk2Q4EL._AC_SL1500_.jpg'
+      id: 'worldcup-jersey',
+      asin: 'B0B4XZH7KM',
+      name: 'World Cup Premium Jersey - Your Team',
+      description: 'Official replica national team jersey',
+      price: '$79.99',
+      image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+    },
+    {
+      id: 'worldcup-cap',
+      asin: 'B09R6J9KLM',
+      name: 'World Cup 2026 Official Cap',
+      description: 'Official tournament baseball cap',
+      price: '$24.99',
+      image: 'https://m.media-amazon.com/images/I/61xgZC3VKYL._AC_SL1500_.jpg'
     }
   ],
   es: [
     {
       id: 'pelota-mundial',
-      asin: 'B09V3KXJPB',
-      name: 'Adidas Al Rihla - Balón Oficial Copa Mundial 2026',
+      asin: 'B0BSHDWR8K',
+      name: 'Adidas Balón Oficial Copa Mundial 2026',
       description: 'Balón oficial del partido para la Copa Mundial FIFA 2026',
-      price: '$165.00',
-      image: 'https://m.media-amazon.com/images/I/51H0x6qN0XL._AC_SL1500_.jpg'
+      price: '$149.99',
+      image: 'https://m.media-amazon.com/images/I/61JvNbHLWQL._AC_SL1500_.jpg'
     },
     {
-      id: 'camiseta-equipo',
-      asin: 'B08XZH3ZKK',
-      name: 'Camiseta de Equipo Copa Mundial - Réplica Premium',
-      description: 'Camiseta de réplica oficial del equipo nacional',
-      price: '$89.99',
-      image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+      id: 'fifa-juego',
+      asin: 'B0B14F5KLM',
+      name: 'EA Sports FC 25 - Edición Copa Mundial',
+      description: 'Videojuego oficial con modo Copa Mundial',
+      price: '$69.99',
+      image: 'https://m.media-amazon.com/images/I/81MTv5eRLNL._AC_SL1500_.jpg'
     },
     {
       id: 'banderas-mundial',
-      asin: 'B07Y8Y3T2K',
-      name: 'Pack de Banderas Copa Mundial 2026 - 48 Equipos',
-      description: 'Set de 48 mini banderas para todas las naciones participantes',
-      price: '$24.99',
+      asin: 'B09V3KXJPB',
+      name: 'Pack Banderas Copa Mundial 2026 - 48 Equipos',
+      description: 'Mini banderas para todas las naciones participantes',
+      price: '$19.99',
       image: 'https://m.media-amazon.com/images/I/71FHrB8vSEL._AC_SL1500_.jpg'
     }
   ],
   fr: [
     {
       id: 'ballon-mondial',
-      asin: 'B09V3KXJPB',
-      name: 'Adidas Al Rihla - Ballon Officiel Coupe du Monde 2026',
+      asin: 'B0BSHDWR8K',
+      name: 'Adidas Ballon Officiel Coupe du Monde 2026',
       description: 'Ballon officiel pour la Coupe du Monde FIFA 2026',
-      price: '$165.00',
-      image: 'https://m.media-amazon.com/images/I/51H0x6qN0XL._AC_SL1500_.jpg'
+      price: '€149.99',
+      image: 'https://m.media-amazon.com/images/I/61JvNbHLWQL._AC_SL1500_.jpg'
     },
     {
-      id: 'maillot-equipe',
-      asin: 'B08XZH3ZKK',
-      name: 'Maillot Équipe Coupe du Monde - Réplique Premium',
-      description: 'Maillot réplique officiel d\'équipe nationale',
-      price: '$89.99',
-      image: 'https://m.media-amazon.com/images/I/71X3V3L+qOL._AC_SL1500_.jpg'
+      id: 'fifa-jeu',
+      asin: 'B0B14F5KLM',
+      name: 'EA Sports FC 25 - Édition Coupe du Monde',
+      description: 'Jeu vidéo officiel avec mode Coupe du Monde',
+      price: '€69.99',
+      image: 'https://m.media-amazon.com/images/I/81MTv5eRLNL._AC_SL1500_.jpg'
     },
     {
       id: 'drapeaux-mondial',
-      asin: 'B07Y8Y3T2K',
+      asin: 'B09V3KXJPB',
       name: 'Pack Drapeaux Coupe du Monde 2026 - 48 Équipes',
-      description: 'Set de 48 mini drapeaux pour toutes les nations participantes',
-      price: '$24.99',
+      description: 'Mini drapeaux pour toutes les nations participantes',
+      price: '€19.99',
       image: 'https://m.media-amazon.com/images/I/71FHrB8vSEL._AC_SL1500_.jpg'
     }
   ]

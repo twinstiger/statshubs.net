@@ -249,29 +249,7 @@ export default function ScheduleClient({ lang }: ScheduleClientProps) {
         </div>
 
         {/* Advertisement */}
-        <div className="mb-6">
-          <div className="w-full max-w-[728px] mx-auto">
-            <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
-            <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
-              <script
-                async
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    var _pop = _pop || [];
-                    _pop.push(['place', '728x90']);
-                    (function() {
-                      var s = document.createElement('script');
-                      s.src = 'https://pl29763332.effectivecpmnetwork.com/c0bc28dc211ef406e670391da00e9e1a/invoke.js';
-                      s.async = true;
-                      document.head.appendChild(s);
-                    })();
-                  `
-                }}
-              />
-              <div id="container-c0bc28dc211ef406e670391da00e9e1a"></div>
-            </div>
-          </div>
-        </div>
+        <Adsterra728x90 />
 
         {/* Content - Bracket View Only */}
         <BracketClient lang={lang} />
