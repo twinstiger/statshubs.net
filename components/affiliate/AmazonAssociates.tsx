@@ -88,7 +88,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: '2026 Panini FIFA World Cup Sticker Collection Box - 50 Packs',
       description: 'Official FIFA World Cup trading stickers, collect and trade to complete your album',
       price: '$99.97',
-      image: 'https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/61fAVB2noeL._AC_UL320_.jpg'
     },
     {
       id: 'tripact-training-ball',
@@ -96,7 +96,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Tripact 2026 World Flag Pattern Training Outdoor Football Size 5',
       description: 'Training football with world flag design, perfect for practice and tournaments',
       price: '$19.99',
-      image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71zAlzxQ5HL._AC_UL320_.jpg'
     },
     {
       id: 'fifa-ballers-zuru',
@@ -104,7 +104,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'FIFA 2026 World Cup Ballers Series 1 Twin Pack by ZURU',
       description: 'Officially licensed, surprise unboxing soccer collectibles',
       price: '$18.87',
-      image: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81swiGCPoYL._AC_UL320_.jpg'
     },
     {
       id: 'fifa-official-guide',
@@ -112,7 +112,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: '2026 FIFA World Cup: The Official Guide',
       description: 'Official comprehensive guide to the 2026 World Cup tournament',
       price: '$20.14',
-      image: 'https://images.unsplash.com/photo-1505506874110-6a7a69069a08?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81EIE4EXEML._AC_UL320_.jpg'
     },
     {
       id: 'exun-gift-basket',
@@ -120,7 +120,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Exun 2026 Football Fan Gift Basket Set - 9 Pieces',
       description: 'Sports accessories combo including thermos, towel, keychain, hat, wristband and metal badge',
       price: '$29.99',
-      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81tIJw81t8L._AC_UL320_.jpg'
     },
     {
       id: 'soccer-cards-legendary',
@@ -128,7 +128,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Soccer Cards - 32 Unique Legendary Players',
       description: 'Fun for the whole family! Each pack contains different soccer cards for unforgettable moments',
       price: '$14.95',
-      image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/61a32wQhcvL._AC_UL320_.jpg'
     },
     {
       id: 'worldcup-poster-2026',
@@ -136,7 +136,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: '2026 World Cup Super Schedule Poster - 48 Teams Tournament Calendar',
       description: 'Large schedule poster with all 48 teams, perfect for home, office, bar and party decorations',
       price: '$22.99',
-      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71YCYJ8OF4L._AC_UL320_.jpg'
     },
     {
       id: 'soccer-tattoos',
@@ -144,7 +144,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Awinmay 45pcs Soccer Tattoo Stickers - World Cup Temporary Tattoos',
       description: 'World Cup themed temporary tattoos for kids, adults and teens, perfect party favors',
       price: '$8.99',
-      image: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/813LjISRBIL._AC_UL320_.jpg'
     },
     {
       id: 'worldcup-hat-2026',
@@ -152,7 +152,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: '2026 World Cup Soccer Hat - Adjustable Baseball Cap',
       description: 'Officially licensed World Cup 2026 baseball cap, perfect accessory for fans',
       price: '$9.99',
-      image: 'https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81Rd+2tL+eL._AC_UL320_.jpg'
     },
     {
       id: 'monopoly-fifa-deal',
@@ -160,7 +160,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Monopoly Deal FIFA World Cup 2026 Edition',
       description: 'Officially licensed FIFA World Cup card game for 2-5 players, 15 minutes playtime',
       price: '$9.99',
-      image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71YCYJ8OF4L._AC_UL320_.jpg'
     }
   ],
   es: [
@@ -170,7 +170,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Colección de Pegatinas Copa Mundial FIFA 2026 Panini - 50 Paquetes',
       description: 'Pegatinas oficiales de intercambio FIFA, colecciona e intercambia para completar tu álbum',
       price: '$99.97',
-      image: 'https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/61fAVB2noeL._AC_UL320_.jpg'
     },
     {
       id: 'tripact-training-ball',
@@ -178,7 +178,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Tripact 2026 Balón de Entrenamiento con Patrón de Banderas Mundiales',
       description: 'Balón de entrenamiento con diseño de banderas del mundo, perfecto para práctica',
       price: '$19.99',
-      image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71zAlzxQ5HL._AC_UL320_.jpg'
     },
     {
       id: 'fifa-ballers-zuru',
@@ -186,7 +186,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'FIFA 2026 Copa Mundial Ballers Serie 1 Doble Paquete by ZURU',
       description: 'Coleccionables de fútbol con licencia oficial, sorpresa y apertura',
       price: '$18.87',
-      image: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81swiGCPoYL._AC_UL320_.jpg'
     },
     {
       id: 'fifa-official-guide',
@@ -194,7 +194,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Copa Mundial FIFA 2026: La Guía Oficial',
       description: 'Guía completa oficial del torneo Copa Mundial 2026',
       price: '$20.14',
-      image: 'https://images.unsplash.com/photo-1505506874110-6a7a69069a08?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81EIE4EXEML._AC_UL320_.jpg'
     },
     {
       id: 'exun-gift-basket',
@@ -202,7 +202,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Exun 2026 Cesta de Regalo de Aficionado al Fútbol - 9 Piezas',
       description: 'Combo de accesorios deportivos incluye termo, toalla, llavero, gorra, pulsera y insignia',
       price: '$29.99',
-      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81tIJw81t8L._AC_UL320_.jpg'
     },
     {
       id: 'soccer-cards-legendary',
@@ -210,7 +210,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Tarjetas de Fútbol - 32 Jugadores Legendarios Únicos',
       description: '¡Diversión para toda la familia! Cada paquete contiene diferentes tarjetas de fútbol',
       price: '$14.95',
-      image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/61a32wQhcvL._AC_UL320_.jpg'
     },
     {
       id: 'worldcup-poster-2026',
@@ -218,7 +218,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Póster Extra Grande Calendario Copa Mundial 2026 - 48 Equipos',
       description: 'Póster de horario con los 48 equipos, perfecto para hogar, oficina y fiestas',
       price: '$22.99',
-      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71YCYJ8OF4L._AC_UL320_.jpg'
     },
     {
       id: 'soccer-tattoos',
@@ -226,7 +226,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Awinmay 45pcs Pegatinas de Tatuaje de Fútbol - Tatuajes Temporales Copa Mundial',
       description: 'Tatuajes temporales temáticos de Copa Mundial para niños, adultos y adolescentes',
       price: '$8.99',
-      image: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/813LjISRBIL._AC_UL320_.jpg'
     },
     {
       id: 'worldcup-hat-2026',
@@ -234,7 +234,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Gorra de Fútbol Copa Mundial 2026 - Gorra Béisbol Ajustable',
       description: 'Gorra oficial con licencia Copa Mundial 2026, accesorio perfecto para aficionados',
       price: '$9.99',
-      image: 'https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81Rd+2tL+eL._AC_UL320_.jpg'
     },
     {
       id: 'monopoly-fifa-deal',
@@ -242,7 +242,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Monopoly Deal FIFA Copa Mundial 2026 Edición',
       description: 'Juego de cartas FIFA Copa Mundial con licencia oficial para 2-5 jugadores',
       price: '$9.99',
-      image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71YCYJ8OF4L._AC_UL320_.jpg'
     }
   ],
   fr: [
@@ -252,7 +252,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Collection de Stickers Coupe du Monde FIFA 2026 Panini - 50 Paquets',
       description: 'Stickers officiels FIFA, collectionnez et échangez pour compléter votre album',
       price: '$99.97',
-      image: 'https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/61fAVB2noeL._AC_UL320_.jpg'
     },
     {
       id: 'tripact-training-ball',
@@ -260,7 +260,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Tripact 2026 Ballon d\'Entraînement Drapeaux Monde Size 5',
       description: 'Ballon d\'entraînement avec motif drapeaux mondiaux, parfait pour la pratique',
       price: '$19.99',
-      image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71zAlzxQ5HL._AC_UL320_.jpg'
     },
     {
       id: 'fifa-ballers-zuru',
@@ -268,7 +268,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'FIFA 2026 Coupe du Monde Ballers Série 1 Paquet Double by ZURU',
       description: 'Collectibles de football sous licence officielle, surprise et déballage',
       price: '$18.87',
-      image: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81swiGCPoYL._AC_UL320_.jpg'
     },
     {
       id: 'fifa-official-guide',
@@ -276,7 +276,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Coupe du Monde FIFA 2026: Le Guide Officiel',
       description: 'Guide complet officiel du tournoi Coupe du Monde 2026',
       price: '$20.14',
-      image: 'https://images.unsplash.com/photo-1505506874110-6a7a69069a08?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81EIE4EXEML._AC_UL320_.jpg'
     },
     {
       id: 'exun-gift-basket',
@@ -284,7 +284,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Exun 2026 Panier Cadeau Aficionado du Football - 9 Pièces',
       description: 'Combo d\'accessoires sportifs incluant thermos, serviette, porte-clés, casquette',
       price: '$29.99',
-      image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81tIJw81t8L._AC_UL320_.jpg'
     },
     {
       id: 'soccer-cards-legendary',
@@ -292,7 +292,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Cartes de Football - 32 Joueurs Légendaires Uniques',
       description: 'Fun pour toute la famille! Chaque paquet contient différentes cartes de football',
       price: '$14.95',
-      image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/61a32wQhcvL._AC_UL320_.jpg'
     },
     {
       id: 'worldcup-poster-2026',
@@ -300,7 +300,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Grande Affiche Calendrier Coupe du Monde 2026 - 48 Équipes',
       description: 'Affiche calendrier avec les 48 équipes, parfaite pour maison, bureau et fiestas',
       price: '$22.99',
-      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71YCYJ8OF4L._AC_UL320_.jpg'
     },
     {
       id: 'soccer-tattoos',
@@ -308,7 +308,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Awinmay 45pcs Tatouages Temporaires Football - Coupe du Monde',
       description: 'Tatouages temporaires à thème Coupe du Monde pour enfants, adultes et adolescents',
       price: '$8.99',
-      image: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/813LjISRBIL._AC_UL320_.jpg'
     },
     {
       id: 'worldcup-hat-2026',
@@ -316,7 +316,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Casquette Football Coupe du Monde 2026 - Casquette Baseball Ajustable',
       description: 'Casquette sous licence officielle Coupe du Monde 2026, accessoire parfait pour fans',
       price: '$9.99',
-      image: 'https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/81Rd+2tL+eL._AC_UL320_.jpg'
     },
     {
       id: 'monopoly-fifa-deal',
@@ -324,7 +324,7 @@ export const affiliateProducts: Record<string, AffiliateProduct[]> = {
       name: 'Monopoly Deal FIFA Coupe du Monde 2026 Édition',
       description: 'Jeu de cartes FIFA Coupe du Monde sous licence officielle pour 2-5 joueurs',
       price: '$9.99',
-      image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=500&q=80'
+      image: 'https://m.media-amazon.com/images/I/71YCYJ8OF4L._AC_UL320_.jpg'
     }
   ]
 }
@@ -337,7 +337,7 @@ export function ProductRecommendation({ lang = 'en' }: { lang?: string }) {
     <div className="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl p-6 border border-gray-200">
       <div className="flex items-start gap-4">
         <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center border overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=200&q=80" alt="World Cup Stickers" className="w-full h-full object-cover" />
+          <img src="https://m.media-amazon.com/images/I/61fAVB2noeL._AC_UL320_.jpg" alt="World Cup Stickers" className="w-full h-full object-cover" />
         </div>
         <div className="flex-1">
           <h3 className="font-semibold mb-1">2026 Panini FIFA World Cup Sticker Collection</h3>
