@@ -50,14 +50,18 @@ export function AmazonLink({ asin, lang = 'en', children, className = '', newTab
 }
 
 // 产品卡片组件
+import Image from 'next/image'
+
 export function ProductCard({ product, lang = 'en' }: { product: AffiliateProduct, lang?: string }) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="aspect-square bg-gray-50 p-4">
-        <img
+      <div className="aspect-square bg-gray-50 p-4 relative">
+        <Image
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain"
+          fill
+          className="object-contain"
+          unoptimized
         />
       </div>
       <div className="p-4">

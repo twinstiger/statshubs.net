@@ -5,6 +5,7 @@ import { matches, teams } from '@/lib/data'
 import { Language } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
 import BracketClient from './BracketClient'
+import { Adsterra728x90 } from '@/components/ads/AdsterraAd'
 
 interface ScheduleClientProps {
   lang: Language
